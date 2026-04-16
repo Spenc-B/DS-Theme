@@ -164,3 +164,59 @@
     font-size: 2.5rem; font-weight: 700; color: #E17055;
 }
 .wp-block[data-type="developer-starter/ds-pricing"] .ds-pricing--featured { border-color: #E17055; }
+
+/* ── DS Icon Box editor ────────────────────────── */
+.wp-block[data-type="developer-starter/ds-icon-box"] .ds-icon-box {
+    border: 1px solid rgba(0,0,0,.08); border-radius: 18px; padding: 2rem;
+}
+.wp-block[data-type="developer-starter/ds-icon-box"] .ds-icon-box__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+/* ── DS Progress Bar editor ────────────────────── */
+.wp-block[data-type="developer-starter/ds-progress-bar"] .ds-progress__track {
+    height: 10px; background: rgba(0,0,0,.06); border-radius: 999px; overflow: hidden;
+}
+.wp-block[data-type="developer-starter/ds-progress-bar"] .ds-progress__fill {
+    height: 100%; border-radius: 999px;
+}
+.wp-block[data-type="developer-starter/ds-progress-bar"] .ds-progress__header {
+    display: flex; justify-content: space-between; margin-bottom: .4rem;
+}
+
+/* ── DS Divider editor ─────────────────────────── */
+.wp-block[data-type="developer-starter/ds-divider"] .ds-divider { display: flex; justify-content: center; padding: 1rem 0; }
+.wp-block[data-type="developer-starter/ds-divider"] .ds-divider__hr { border: none; border-top: 2px solid rgba(0,0,0,.08); }
+.wp-block[data-type="developer-starter/ds-divider"] .ds-divider__wrap { display: flex; align-items: center; gap: .75rem; }
+.wp-block[data-type="developer-starter/ds-divider"] .ds-divider__line { flex: 1; border-top: 2px solid rgba(0,0,0,.08); }
+
+/* ── DS Card editor ────────────────────────────── */
+.wp-block[data-type="developer-starter/ds-card"] .ds-card {
+    border: 1px solid rgba(0,0,0,.08); border-radius: 18px; overflow: hidden;
+}
+.wp-block[data-type="developer-starter/ds-card"] .ds-card__body { padding: 1.5rem; }
+.wp-block[data-type="developer-starter/ds-card"] .ds-card__img { width: 100%; height: auto; }
+
+/* ── DS Tabs editor ────────────────────────────── */
+.wp-block[data-type="developer-starter/ds-tabs"] .ds-tabs {
+    border: 1px solid rgba(0,0,0,.08); border-radius: 18px; overflow: hidden;
+}
+.wp-block[data-type="developer-starter/ds-tabs"] .ds-tabs__nav {
+    display: flex; border-bottom: 1px solid rgba(0,0,0,.08); background: #faf9f6; overflow-x: auto;
+}
+.wp-block[data-type="developer-starter/ds-tabs"] .ds-tabs__btn {
+    padding: .85rem 1.5rem; border: none; background: none; font-weight: 600; font-size: .9rem;
+    color: #7c7c7c; cursor: pointer; position: relative;
+}
+.wp-block[data-type="developer-starter/ds-tabs"] .ds-tabs__btn.is-active { color: #E17055; }
+.wp-block[data-type="developer-starter/ds-tabs"] .ds-tabs__btn.is-active::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: #E17055; border-radius: 3px 3px 0 0;
+}
+.wp-block[data-type="developer-starter/ds-tabs"] .ds-tabs__panels { padding: 1.5rem; }
+
+/* ── DS Logo Grid editor ──────────────────────── */
+.wp-block[data-type="developer-starter/ds-logo-grid"] .ds-logo-grid__grid { display: grid; gap: 1.5rem; align-items: center; }
+.wp-block[data-type="developer-starter/ds-logo-grid"] .ds-logo-grid__item img { max-width: 100%; max-height: 60px; object-fit: contain; }
+.wp-block[data-type="developer-starter/ds-logo-grid"] .ds-logo-grid--grayscale .ds-logo-grid__item img { filter: grayscale(100%); opacity: .55; }
+.wp-block[data-type="developer-starter/ds-logo-grid"] .ds-logo-grid__placeholder {
+    text-align: center; padding: 3rem; border: 2px dashed rgba(0,0,0,.08); border-radius: 18px; color: #7c7c7c;
+}

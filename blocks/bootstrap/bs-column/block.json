@@ -3,7 +3,7 @@
     "name": "developer-starter/bs-column",
     "version": "1.0.0",
     "title": "BS Column",
-    "category": "design",
+    "category": "developer-starter",
     "icon": "align-center",
     "description": "Bootstrap column with responsive span, offset, order, and alignment.",
     "keywords": ["bootstrap", "column", "col", "grid"],

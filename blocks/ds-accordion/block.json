@@ -3,7 +3,7 @@
     "name": "developer-starter/ds-accordion",
     "version": "1.0.0",
     "title": "DS Accordion Item",
-    "category": "widgets",
+    "category": "developer-starter",
     "icon": "arrow-down-alt2",
     "description": "Expandable accordion / FAQ item with title and inner content.",
     "keywords": ["accordion", "faq", "toggle", "collapse", "lumina"],

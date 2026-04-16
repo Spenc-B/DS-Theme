@@ -3,7 +3,7 @@
     "name": "developer-starter/ds-team-member",
     "version": "1.0.0",
     "title": "DS Team Member",
-    "category": "widgets",
+    "category": "developer-starter",
     "icon": "admin-users",
     "description": "Team member card with photo, name, role, and bio.",
     "keywords": ["team", "member", "person", "staff", "lumina"],

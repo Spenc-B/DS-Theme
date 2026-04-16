@@ -1,0 +1,25 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-icon-box",
+    "version": "1.0.0",
+    "title": "DS Icon Box",
+    "category": "developer-starter",
+    "icon": "star-filled",
+    "description": "Icon + heading + description card for services or features.",
+    "keywords": ["icon", "box", "service", "feature", "lumina"],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": { "background": true, "text": true },
+        "spacing": { "padding": true, "margin": true }
+    },
+    "attributes": {
+        "icon": { "type": "string", "default": "⭐" },
+        "heading": { "type": "string", "source": "html", "selector": ".ds-icon-box__heading" },
+        "description": { "type": "string", "source": "html", "selector": ".ds-icon-box__desc" },
+        "alignment": { "type": "string", "default": "center" }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-icon-box.js"
+}

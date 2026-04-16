@@ -3,7 +3,7 @@
     "name": "developer-starter/ds-pricing",
     "version": "1.0.0",
     "title": "DS Pricing Card",
-    "category": "widgets",
+    "category": "developer-starter",
     "icon": "tag",
     "description": "Pricing tier card with price, feature list, and CTA button.",
     "keywords": ["pricing", "plan", "tier", "card", "lumina"],

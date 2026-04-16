@@ -3,7 +3,7 @@
     "name": "developer-starter/bs-row",
     "version": "1.0.0",
     "title": "BS Row",
-    "category": "design",
+    "category": "developer-starter",
     "icon": "columns",
     "description": "Bootstrap row with gutter, alignment, and row-cols controls.",
     "keywords": ["bootstrap", "row", "grid", "columns"],

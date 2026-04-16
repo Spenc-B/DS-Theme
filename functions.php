@@ -52,6 +52,18 @@ function ds_setup(): void {
 }
 add_action('after_setup_theme', 'ds_setup');
 
+/* ── Block Category ────────────────────────────────────── */
+
+function ds_block_category(array $categories): array {
+    array_unshift($categories, [
+        'slug'  => 'developer-starter',
+        'title' => __('Developer Starter', 'developer-starter'),
+        'icon'  => 'star-filled',
+    ]);
+    return $categories;
+}
+add_filter('block_categories_all', 'ds_block_category');
+
 /* ── Enqueue Assets ────────────────────────────────────── */
 
 function ds_enqueue_assets(): void {
@@ -154,6 +166,12 @@ function ds_register_bootstrap_blocks(): void {
         'ds-alert',
         'ds-accordion',
         'ds-team-member',
+        'ds-icon-box',
+        'ds-progress-bar',
+        'ds-divider',
+        'ds-card',
+        'ds-tabs',
+        'ds-logo-grid',
     ];
     foreach ($ds_blocks as $slug) {
         $path = get_template_directory() . '/blocks/' . $slug;

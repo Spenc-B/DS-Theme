@@ -3,7 +3,7 @@
     "name": "developer-starter/ds-alert",
     "version": "1.0.0",
     "title": "DS Alert",
-    "category": "widgets",
+    "category": "developer-starter",
     "icon": "warning",
     "description": "Styled alert / notice box with type selector and inner content.",
     "keywords": ["alert", "notice", "warning", "info", "lumina"],

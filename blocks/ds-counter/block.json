@@ -3,7 +3,7 @@
     "name": "developer-starter/ds-counter",
     "version": "1.0.0",
     "title": "DS Counter",
-    "category": "widgets",
+    "category": "developer-starter",
     "icon": "chart-bar",
     "description": "Big statistic number with label — great for showcasing metrics.",
     "keywords": ["counter", "stat", "number", "metric", "lumina"],

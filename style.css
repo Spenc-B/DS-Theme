@@ -1,6 +1,6 @@
 /*
 Theme Name: Developer Starter
-Author: Developer
+Author: Spencer Blackler
 Author URI: https://developer.local
 Theme URI: https://developer.local
 Description: Lumina – a clean, lightweight Gutenberg parent theme with ACF Pro support. Design that breathes.
@@ -650,3 +650,229 @@ body.is-dark-theme .ds-alert--success { background: #1a2e1a; color: #72d88a; }
 body.is-dark-theme .ds-alert--warning { background: #2e2a1a; color: #f0c95e; }
 body.is-dark-theme .ds-alert--danger  { background: #2e1a1a; color: #f08080; }
 body.is-dark-theme .ds-alert--brand   { background: #2e1e1a; color: #f0a080; }
+
+/* ── DS Icon Box ───────────────────────────────────── */
+.ds-icon-box {
+  padding: 2rem;
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-radius);
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.ds-icon-box:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,.06);
+  transform: translateY(-3px);
+}
+.ds-icon-box--center { text-align: center; }
+.ds-icon-box--left { text-align: left; }
+.ds-icon-box--left .ds-icon-box__icon { margin: 0 0 1rem; }
+.ds-icon-box__icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  display: block;
+}
+.ds-icon-box__heading {
+  font-weight: 300;
+  letter-spacing: -.02em;
+  font-size: 1.2rem;
+  color: var(--ds-heading);
+  margin: 0 0 .5rem;
+}
+.ds-icon-box__desc {
+  color: var(--ds-muted);
+  font-size: .92rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── DS Progress Bar ───────────────────────────────── */
+.ds-progress { margin-bottom: 1rem; }
+.ds-progress__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: .4rem;
+}
+.ds-progress__label { font-weight: 600; font-size: .92rem; color: var(--ds-heading); }
+.ds-progress__pct { font-size: .85rem; color: var(--ds-muted); font-variant-numeric: tabular-nums; }
+.ds-progress__track {
+  height: 10px;
+  background: var(--ds-line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.ds-progress__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--ds-coral);
+  transition: width .6s ease;
+}
+
+/* ── DS Divider ────────────────────────────────────── */
+.ds-divider {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+.ds-divider__hr {
+  border: none;
+  border-top: 2px solid var(--ds-line);
+  margin: 0 auto;
+}
+.ds-divider__wrap {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin: 0 auto;
+}
+.ds-divider__line {
+  flex: 1;
+  border-top: 2px solid var(--ds-line);
+  display: block;
+}
+.ds-divider__center {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  color: var(--ds-muted);
+  white-space: nowrap;
+  letter-spacing: .02em;
+}
+
+/* ── DS Card ───────────────────────────────────────── */
+.ds-card {
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.ds-card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,.06);
+  transform: translateY(-3px);
+}
+.ds-card__media { line-height: 0; }
+.ds-card__img { width: 100%; height: auto; display: block; }
+.ds-card__body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.ds-card__title {
+  font-weight: 300; letter-spacing: -.02em;
+  font-size: 1.2rem; color: var(--ds-heading);
+  margin: 0 0 .75rem;
+}
+.ds-card__content { flex: 1; color: var(--ds-text); font-size: .92rem; line-height: 1.65; }
+.ds-card__content p { margin: 0 0 .5rem; }
+.ds-card__btn { margin-top: 1rem; }
+.ds-card__btn a {
+  display: inline-block;
+  padding: .6rem 1.5rem;
+  border: 2px solid var(--ds-coral);
+  border-radius: 999px;
+  color: var(--ds-coral);
+  font-weight: 600;
+  font-size: .9rem;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.ds-card__btn a:hover { background: var(--ds-coral); color: #fff; }
+
+/* ── DS Tabs ───────────────────────────────────────── */
+.ds-tabs {
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-radius);
+  overflow: hidden;
+}
+.ds-tabs__nav {
+  display: flex;
+  border-bottom: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+  overflow-x: auto;
+}
+.ds-tabs__btn {
+  padding: .85rem 1.5rem;
+  border: none;
+  background: none;
+  font-weight: 600;
+  font-size: .9rem;
+  color: var(--ds-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  transition: color .2s;
+}
+.ds-tabs__btn:hover { color: var(--ds-heading); }
+.ds-tabs__btn.is-active {
+  color: var(--ds-coral);
+}
+.ds-tabs__btn.is-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--ds-coral);
+  border-radius: 3px 3px 0 0;
+}
+.ds-tabs__panels { padding: 1.5rem; }
+.ds-tabs__panel { display: none; }
+.ds-tabs__panel.is-active { display: block; }
+
+/* ── DS Logo Grid ──────────────────────────────────── */
+.ds-logo-grid__grid {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+.ds-logo-grid__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.ds-logo-grid__item img {
+  max-width: 100%;
+  max-height: 60px;
+  object-fit: contain;
+  transition: filter .3s ease, opacity .3s ease;
+}
+.ds-logo-grid--grayscale .ds-logo-grid__item img {
+  filter: grayscale(100%);
+  opacity: .55;
+}
+.ds-logo-grid--grayscale .ds-logo-grid__item img:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+.ds-logo-grid__placeholder {
+  text-align: center;
+  padding: 3rem;
+  border: 2px dashed var(--ds-line);
+  border-radius: var(--ds-radius);
+  color: var(--ds-muted);
+}
+
+/* ── Dark-mode overrides — new blocks (batch 2) ──── */
+body.is-dark-theme .ds-icon-box,
+body.is-dark-theme .ds-card {
+  background: #1e1e1e;
+  border-color: rgba(255,255,255,.08);
+  color: #ccc;
+}
+body.is-dark-theme .ds-icon-box__heading,
+body.is-dark-theme .ds-card__title { color: #eee; }
+body.is-dark-theme .ds-icon-box__desc,
+body.is-dark-theme .ds-card__content { color: #bbb; }
+body.is-dark-theme .ds-progress__track { background: rgba(255,255,255,.1); }
+body.is-dark-theme .ds-progress__label { color: #eee; }
+body.is-dark-theme .ds-divider__hr,
+body.is-dark-theme .ds-divider__line { border-color: rgba(255,255,255,.1); }
+body.is-dark-theme .ds-tabs {
+  border-color: rgba(255,255,255,.08);
+}
+body.is-dark-theme .ds-tabs__nav { background: #1e1e1e; border-color: rgba(255,255,255,.08); }
+body.is-dark-theme .ds-tabs__btn { color: #888; }
+body.is-dark-theme .ds-tabs__btn:hover { color: #ddd; }
+body.is-dark-theme .ds-logo-grid--grayscale .ds-logo-grid__item img {
+  filter: grayscale(100%) brightness(1.4);
+  opacity: .5;
+}

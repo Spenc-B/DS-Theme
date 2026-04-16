@@ -5,15 +5,26 @@ All notable changes to the Developer Starter theme are documented here.
 ## [1.3.0] — 2025-07-16
 
 ### Added
-- **6 new visual Gutenberg blocks** — fully editable in the block editor with RichText, MediaUpload, and InnerBlocks
+- **12 new visual Gutenberg blocks** — fully editable in the block editor with RichText, MediaUpload, and InnerBlocks
   - **DS Testimonial** — Quote card with avatar, name, role, and 0–5 star rating
   - **DS Pricing Card** — Tier card with price/period, InnerBlocks feature list, CTA button, "featured" highlight toggle
   - **DS Counter** — Large stat number with label and optional prefix/suffix
   - **DS Alert** — Styled notice box with 5 types (info, success, warning, danger, brand), InnerBlocks content, optional dismiss button
   - **DS Accordion Item** — Expandable FAQ section using native `<details>`/`<summary>`, RichText title, InnerBlocks body
   - **DS Team Member** — Card with circular photo, name, role, and bio
+  - **DS Icon Box** — Icon + heading + description card with centre/left alignment
+  - **DS Progress Bar** — Labelled skill/progress bar with percentage fill and colour picker
+  - **DS Divider** — Decorative section divider with optional centre icon or text label
+  - **DS Card** — Generic content card with image, title, InnerBlocks body, and CTA button
+  - **DS Tabs** — Tabbed content container with dynamic tab management
+  - **DS Logo Grid** — Client/partner logo grid with columns control and grayscale toggle
+- **Custom block category** — "Developer Starter" section in the block inserter (all theme blocks grouped together)
 - Dark mode support for all new blocks
 - Editor CSS hints for new blocks
+
+### Changed
+- **Author** updated to Spencer Blackler across style.css and README.md
+- All block.json files use `"category": "developer-starter"` custom category
 
 ### Files Added
 - `blocks/ds-testimonial/block.json`
@@ -22,15 +33,27 @@ All notable changes to the Developer Starter theme are documented here.
 - `blocks/ds-alert/block.json`
 - `blocks/ds-accordion/block.json`
 - `blocks/ds-team-member/block.json`
+- `blocks/ds-icon-box/block.json`
+- `blocks/ds-progress-bar/block.json`
+- `blocks/ds-divider/block.json`
+- `blocks/ds-card/block.json`
+- `blocks/ds-tabs/block.json`
+- `blocks/ds-logo-grid/block.json`
 - `assets/js/blocks/ds-testimonial.js`
 - `assets/js/blocks/ds-pricing.js`
 - `assets/js/blocks/ds-counter.js`
 - `assets/js/blocks/ds-alert.js`
 - `assets/js/blocks/ds-accordion.js`
 - `assets/js/blocks/ds-team-member.js`
+- `assets/js/blocks/ds-icon-box.js`
+- `assets/js/blocks/ds-progress-bar.js`
+- `assets/js/blocks/ds-divider.js`
+- `assets/js/blocks/ds-card.js`
+- `assets/js/blocks/ds-tabs.js`
+- `assets/js/blocks/ds-logo-grid.js`
 
 ### Changed
-- `functions.php` — Registers all 6 new blocks
+- `functions.php` — Registers all 12 new blocks + custom block category
 - `style.css` — Frontend styles for all new blocks + dark mode overrides
 - `assets/css/bs-blocks-editor.css` — Editor visual hints for new blocks
 

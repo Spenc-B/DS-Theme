@@ -3,7 +3,7 @@
     "name": "developer-starter/bs-container",
     "version": "1.0.0",
     "title": "BS Container",
-    "category": "design",
+    "category": "developer-starter",
     "icon": "layout",
     "description": "Bootstrap container with fluid and responsive variants.",
     "keywords": ["bootstrap", "container", "layout", "wrapper"],

@@ -1,5 +1,7 @@
 # Developer Starter — Lumina
 
+**Author:** Spencer Blackler
+
 A clean, lightweight Gutenberg parent theme with Bootstrap integration, ACF Pro support, and a full admin settings dashboard. Built for developers who want a minimal, fast foundation for block-based WordPress sites.
 
 ## Features
@@ -155,6 +157,24 @@ Expandable FAQ section rendered as native `<details>`/`<summary>` HTML. RichText
 
 ### DS Team Member
 Centered card with circular photo (MediaUpload), editable name, role, and bio. Lumina border + surface background.
+
+### DS Icon Box
+Icon + heading + description card. Icon is an emoji/text field editable in sidebar. Supports centre and left alignment. Hover lift effect.
+
+### DS Progress Bar
+Labelled progress/skill bar with adjustable percentage (0–100) via a sidebar range control. Show/hide percentage text. Custom bar colour picker with Lumina presets.
+
+### DS Divider
+Decorative section divider with line style control (solid, dashed, dotted, double), adjustable width, optional centre icon or text label, and custom colour.
+
+### DS Card
+Generic content card with optional header image (MediaUpload), editable title, InnerBlocks body for any content, and a CTA button with editable text and URL. Hover lift effect.
+
+### DS Tabs
+Tabbed content container. Manage tab labels dynamically in the sidebar (add/remove/rename). Each tab panel uses InnerBlocks for full content flexibility. Coral active-tab indicator.
+
+### DS Logo Grid
+Client/partner logo showcase. Uses gallery MediaUpload to add multiple logos at once. Adjustable column count (2–6). Optional grayscale toggle — logos are grey by default and gain colour on hover.
 
 ### ACF Meta
 Dynamic block that reads ACF fields or post meta and renders the value:

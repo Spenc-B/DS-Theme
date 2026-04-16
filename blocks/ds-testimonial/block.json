@@ -3,7 +3,7 @@
     "name": "developer-starter/ds-testimonial",
     "version": "1.0.0",
     "title": "DS Testimonial",
-    "category": "widgets",
+    "category": "developer-starter",
     "icon": "format-quote",
     "description": "Testimonial card with quote, avatar, author name, role, and star rating.",
     "keywords": ["testimonial", "quote", "review", "lumina"],

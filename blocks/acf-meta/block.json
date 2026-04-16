@@ -3,7 +3,7 @@
     "name": "developer-starter/acf-meta",
     "version": "1.0.0",
     "title": "ACF Meta",
-    "category": "widgets",
+    "category": "developer-starter",
     "icon": "database",
     "description": "Display an ACF field or post meta value. Link fields support href, mailto, and tel modes.",
     "keywords": ["acf", "meta", "field", "custom", "data"],
