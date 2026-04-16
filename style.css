@@ -1,0 +1,402 @@
+/*
+Theme Name: Developer Starter
+Author: Developer
+Author URI: https://developer.local
+Theme URI: https://developer.local
+Description: Lumina – a clean, lightweight Gutenberg parent theme with ACF Pro support. Design that breathes.
+Requires at least: 6.4
+Tested up to: 6.8
+Requires PHP: 8.0
+Version: 1.2.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: developer-starter
+Tags: block-patterns, full-site-editing, custom-colors, custom-logo, custom-menu, wide-blocks
+*/
+
+/* ── Lumina Design Tokens ──────────────────────────── */
+:root {
+  --ds-content-width: 1120px;
+  --ds-container-width: 1280px;
+  --ds-radius: 18px;
+  --ds-radius-sm: 10px;
+  --ds-gap: clamp(1rem, 2.5vw, 1.75rem);
+  --ds-space: clamp(2.5rem, 6vw, 5rem);
+  --ds-space-lg: clamp(4rem, 10vw, 8rem);
+  --ds-line: rgba(0, 0, 0, .08);
+  --ds-surface: #FAF9F6;
+  --ds-muted: #7c7c7c;
+  --ds-bg: #FAF9F6;
+  --ds-text: #2d2d2d;
+  --ds-coral: #E17055;
+  --ds-yellow: #FDCB6E;
+  --ds-heading: #1a1a1a;
+}
+
+/* ── Reset & Base ──────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ds-bg);
+  color: var(--ds-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--ds-coral);
+  text-decoration: none;
+  text-underline-offset: .18em;
+  transition: color .2s ease;
+}
+a:hover { color: var(--ds-heading); text-decoration: underline; }
+
+main { min-height: 40vh; }
+img { height: auto; max-width: 100%; }
+
+/* ── Layout ────────────────────────────────────────── */
+.wp-site-blocks > * + * { margin-block-start: 0; }
+
+.wp-block-group.is-layout-constrained >
+:where(:not(.alignleft):not(.alignright):not(.alignfull)),
+.wp-block-post-content.is-layout-constrained >
+:where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  max-width: var(--ds-content-width);
+}
+
+.alignwide { max-width: var(--ds-container-width); }
+
+#ds-main,
+#ds-main.wp-block-group,
+main#ds-main {
+  max-width: none;
+  width: 100%;
+}
+
+/* ── Typography ────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6,
+.wp-block-heading {
+  color: var(--ds-heading);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.ds-accent-text {
+  color: var(--ds-coral);
+  font-weight: 300;
+}
+
+/* ── Core Block Overrides ──────────────────────────── */
+.wp-block-site-logo img,
+.custom-logo { max-width: 100%; height: auto; }
+
+.wp-block-navigation { gap: clamp(1.5rem, 3vw, 2.5rem); }
+.wp-block-navigation .wp-block-navigation-item__content {
+  font-weight: 400;
+  font-size: .95rem;
+  color: var(--ds-text);
+  letter-spacing: 0.01em;
+  transition: color .2s ease;
+}
+.wp-block-navigation .wp-block-navigation-item__content:hover {
+  color: var(--ds-coral);
+}
+
+.wp-block-button__link {
+  border-radius: 999px;
+  padding: .75rem 1.75rem;
+  font-weight: 600;
+  font-size: .9rem;
+  letter-spacing: 0.02em;
+  transition: background .2s ease, transform .15s ease;
+}
+.wp-block-button__link:hover {
+  transform: translateY(-1px);
+}
+
+.wp-block-query-pagination { margin-top: var(--ds-space); }
+.wp-block-search__button { border-radius: 999px; }
+
+/* ── Theme Sections ────────────────────────────────── */
+.ds-section { padding-block: var(--ds-space-lg); }
+.ds-surface { background: var(--ds-surface); }
+
+/* ── Cards – subtle 1px borders, no heavy shadows ──── */
+.ds-card {
+  background: #ffffff;
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-radius);
+  overflow: hidden;
+  transition: border-color .2s ease, box-shadow .25s ease;
+}
+.ds-card:hover {
+  border-color: rgba(0, 0, 0, .14);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .04);
+}
+.ds-card > * { margin: 0; }
+.ds-card__body { padding: 1.5rem; }
+
+/* ── Feature Cards (Lumina) ────────────────────────── */
+.ds-feature-card {
+  background: #ffffff;
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-radius);
+  padding: 2rem 1.75rem;
+  transition: border-color .2s ease;
+}
+.ds-feature-card:hover {
+  border-color: rgba(0, 0, 0, .14);
+}
+
+.ds-feature-icon {
+  width: 56px;
+  height: 56px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ds-surface);
+  font-size: 1.25rem;
+  color: var(--ds-coral);
+  margin-bottom: 1.25rem;
+  line-height: 1;
+}
+
+.ds-feature-card h3,
+.ds-feature-card .wp-block-heading {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: .5rem;
+  color: var(--ds-heading);
+}
+
+.ds-feature-card p {
+  color: var(--ds-muted);
+  font-size: .92rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Hexagon Motif (pseudo-elements) ──────────────── */
+.ds-hexagon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+}
+
+.ds-hexagon-wrap .wp-block-spacer {
+  width: 0;
+  min-height: 0 !important;
+}
+
+.ds-hexagon-wrap::after {
+  content: '';
+  display: block;
+  width: 200px;
+  height: 200px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: var(--ds-coral);
+}
+
+.ds-hexagon-wrap::before {
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: var(--ds-yellow);
+  opacity: .3;
+  z-index: 0;
+}
+
+/* ── Grid Utilities ────────────────────────────────── */
+.ds-grid { display: grid; gap: var(--ds-gap); }
+.ds-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ds-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* ── Meta / Breadcrumbs ────────────────────────────── */
+.ds-meta { color: var(--ds-muted); font-size: .95rem; }
+.ds-breadcrumbs { font-size: .88rem; color: var(--ds-muted); margin-bottom: 1.5rem; }
+.ds-breadcrumbs a { color: inherit; text-decoration: none; }
+.ds-breadcrumbs a:hover { color: var(--ds-coral); }
+
+/* ── Header ────────────────────────────────────────── */
+.ds-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border-bottom: 1px solid var(--ds-line);
+  transition: box-shadow .3s ease;
+}
+.ds-site-header.is-scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .06);
+}
+.admin-bar .ds-site-header { top: 32px; }
+
+.ds-header-inner,
+.ds-footer-inner {
+  max-width: var(--ds-container-width);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+.ds-header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 72px;
+}
+
+/* Header brand */
+.ds-header-brand {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  text-decoration: none;
+  color: var(--ds-heading);
+}
+
+.ds-header-brand-icon {
+  width: 36px;
+  height: 36px;
+  display: inline-grid;
+  place-items: center;
+  background: var(--ds-coral);
+  color: #fff;
+  border-radius: 8px;
+  font-size: .85rem;
+  transform: rotate(12deg);
+  margin: 0;
+}
+
+.ds-header-brand-text {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* Header CTA */
+.ds-header-cta .wp-block-button__link {
+  background: var(--ds-coral);
+  color: #fff;
+  padding: .6rem 1.5rem;
+  font-size: .85rem;
+}
+.ds-header-cta .wp-block-button__link:hover {
+  background: #c0392b;
+}
+
+/* ── Footer ────────────────────────────────────────── */
+.ds-footer {
+  background: var(--ds-surface);
+  border-top: 1px solid var(--ds-line);
+  padding-block: clamp(1.5rem, 3vw, 2.5rem);
+  text-align: center;
+}
+.ds-footer p {
+  color: var(--ds-muted);
+  font-size: .88rem;
+  margin: 0;
+}
+
+/* ── Hero (Lumina) ─────────────────────────────────── */
+.ds-hero {
+  padding-block: clamp(4rem, 10vw, 8rem) clamp(3rem, 6vw, 5rem);
+  background: var(--ds-surface);
+}
+
+.ds-hero h1,
+.ds-hero .wp-block-heading {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--ds-heading);
+  margin-bottom: .25rem;
+}
+
+.ds-hero .ds-accent-text {
+  display: block;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 300;
+  color: var(--ds-coral);
+  margin-bottom: 1.25rem;
+}
+
+.ds-hero p {
+  color: var(--ds-muted);
+  font-size: clamp(.95rem, 1.5vw, 1.1rem);
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+/* ── Accessibility ─────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  background: #fff;
+  color: #000;
+  padding: .8rem 1rem;
+  z-index: 99999;
+  border-radius: 8px;
+}
+
+/* ── Dark Mode ─────────────────────────────────────── */
+body.is-dark-theme {
+  --ds-bg: #111111;
+  --ds-surface: #1a1a1a;
+  --ds-text: #e0e0e0;
+  --ds-heading: #f5f5f5;
+  --ds-line: rgba(255, 255, 255, .1);
+  --ds-muted: #999;
+  background: var(--ds-bg);
+  color: var(--ds-text);
+}
+body.is-dark-theme .ds-site-header {
+  background: #111111;
+  border-color: rgba(255,255,255,.06);
+}
+body.is-dark-theme .ds-card,
+body.is-dark-theme .ds-feature-card {
+  background: #1a1a1a;
+  border-color: rgba(255,255,255,.08);
+  color: var(--ds-text);
+}
+body.is-dark-theme .ds-footer {
+  background: #111111;
+  color: #999;
+  border-color: rgba(255,255,255,.06);
+}
+body.is-dark-theme .ds-hero { background: #1a1a1a; }
+body.is-dark-theme footer a { color: var(--ds-coral); }
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 991px) {
+  .admin-bar .ds-site-header { top: 46px; }
+  .ds-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ds-header-main { flex-wrap: wrap; padding-block: .75rem; }
+  .ds-hexagon-wrap::after { width: 150px; height: 150px; }
+  .ds-hexagon-wrap::before { width: 190px; height: 190px; }
+}
+
+@media (max-width: 640px) {
+  .ds-grid--3,
+  .ds-grid--2 { grid-template-columns: 1fr; }
+  .ds-hexagon-wrap::after { width: 120px; height: 120px; }
+  .ds-hexagon-wrap::before { width: 155px; height: 155px; }
+}

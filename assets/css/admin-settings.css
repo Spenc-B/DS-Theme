@@ -1,0 +1,250 @@
+/* ── Developer Starter – Admin Settings ────────────── */
+
+.ds-settings-wrap {
+    max-width: 900px;
+}
+
+.ds-settings-wrap > h1 {
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+
+/* Tabs */
+.ds-tabs {
+    margin-bottom: 0;
+}
+
+/* Form card below tabs */
+.ds-settings-form {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-top: none;
+    padding: 1.5rem 2rem 1rem;
+}
+
+/* Sections */
+.ds-settings-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.ds-settings-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.ds-settings-section h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+}
+
+.ds-settings-section > .description {
+    margin: 0 0 1rem;
+    color: #646970;
+}
+
+.ds-settings-section .form-table {
+    margin-top: 0;
+}
+
+.ds-settings-section .form-table th {
+    font-weight: 400;
+    padding: 12px 10px 12px 0;
+    width: 280px;
+}
+
+.ds-settings-section .form-table td {
+    padding: 10px;
+}
+
+/* ── Toggle Switch ─────────────────────────────────── */
+
+.ds-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.ds-toggle input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.ds-toggle__slider {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    background: #c3c4c7;
+    border-radius: 12px;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.ds-toggle__slider::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.ds-toggle input:checked + .ds-toggle__slider {
+    background: #E17055;
+}
+
+.ds-toggle input:checked + .ds-toggle__slider::after {
+    transform: translateX(20px);
+}
+
+.ds-toggle input:focus-visible + .ds-toggle__slider {
+    outline: 2px solid #2271b1;
+    outline-offset: 2px;
+}
+
+.ds-toggle__label {
+    font-size: 13px;
+    color: #1d2327;
+}
+
+/* ── Conditional rows ──────────────────────────────── */
+
+.ds-conditional.is-hidden {
+    display: none;
+}
+
+/* ── Code textareas ────────────────────────────────── */
+
+.ds-settings-section textarea.code {
+    font-family: 'SF Mono', SFMono-Regular, ui-monospace, Consolas, monospace;
+    font-size: 13px;
+    tab-size: 2;
+    resize: vertical;
+}
+
+/* ── Submit area ───────────────────────────────────── */
+
+.ds-settings-form .submit {
+    margin: 0;
+    padding: 1rem 0 0;
+    border-top: 1px solid #eee;
+}
+
+/* ── Component Grid ────────────────────────────────── */
+
+.ds-comp-actions {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.ds-comp-group {
+    margin-bottom: 18px;
+}
+
+.ds-comp-group__title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1d2327;
+    margin: 0 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 6px;
+}
+
+.ds-comp-group__toggle {
+    background: none;
+    border: none;
+    color: #2271b1;
+    font-size: 11px;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.ds-comp-group__toggle:hover {
+    color: #135e96;
+}
+
+.ds-comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 6px 16px;
+}
+
+.ds-comp-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background 0.15s;
+    font-size: 13px;
+}
+
+.ds-comp-item:hover {
+    background: #f6f7f7;
+}
+
+.ds-comp-item input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.ds-comp-item__check {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #c3c4c7;
+    border-radius: 4px;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.15s;
+    background: #fff;
+}
+
+.ds-comp-item__check::after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.ds-comp-item input:checked + .ds-comp-item__check {
+    background: #E17055;
+    border-color: #E17055;
+}
+
+.ds-comp-item input:checked + .ds-comp-item__check::after {
+    display: block;
+}
+
+.ds-comp-item input:focus-visible + .ds-comp-item__check {
+    outline: 2px solid #2271b1;
+    outline-offset: 2px;
+}
+
+.ds-comp-item__label {
+    color: #1d2327;
+    user-select: none;
+}

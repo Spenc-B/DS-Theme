@@ -1,0 +1,115 @@
+/**
+ * Bootstrap Blocks — Editor styles.
+ *
+ * Visual hints in the block editor so users can see container/row/column
+ * boundaries without Bootstrap CSS loaded in the editor iframe.
+ */
+
+/* ── Container ─────────────────────────────────── */
+.wp-block[data-type="developer-starter/bs-container"] {
+    outline: 1px dashed rgba(0, 0, 0, .12);
+    outline-offset: -1px;
+    position: relative;
+}
+
+.wp-block[data-type="developer-starter/bs-container"]::before {
+    content: 'Container';
+    position: absolute;
+    top: -1px;
+    left: 8px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #E17055;
+    background: #fff;
+    padding: 1px 6px;
+    border-radius: 0 0 4px 4px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: .7;
+}
+
+.wp-block[data-type="developer-starter/bs-container"]:hover::before,
+.wp-block[data-type="developer-starter/bs-container"].is-selected::before {
+    opacity: 1;
+}
+
+/* ── Row ───────────────────────────────────────── */
+.wp-block[data-type="developer-starter/bs-row"] > .row,
+.wp-block[data-type="developer-starter/bs-row"] > [class*="row"] {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 48px;
+}
+
+.wp-block[data-type="developer-starter/bs-row"] {
+    outline: 1px dashed rgba(225, 112, 85, .3);
+    outline-offset: -1px;
+    position: relative;
+}
+
+.wp-block[data-type="developer-starter/bs-row"]::before {
+    content: 'Row';
+    position: absolute;
+    top: -1px;
+    left: 8px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #E17055;
+    background: #fff;
+    padding: 1px 6px;
+    border-radius: 0 0 4px 4px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: .5;
+}
+
+.wp-block[data-type="developer-starter/bs-row"]:hover::before {
+    opacity: 1;
+}
+
+/* ── Column ────────────────────────────────────── */
+.wp-block[data-type="developer-starter/bs-column"] {
+    outline: 1px dashed rgba(253, 203, 110, .5);
+    outline-offset: -1px;
+    min-height: 48px;
+    position: relative;
+    flex: 1 0 0%;
+}
+
+.wp-block[data-type="developer-starter/bs-column"]::before {
+    content: 'Col';
+    position: absolute;
+    top: -1px;
+    left: 8px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #FDCB6E;
+    background: #fff;
+    padding: 1px 6px;
+    border-radius: 0 0 4px 4px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: .5;
+}
+
+.wp-block[data-type="developer-starter/bs-column"]:hover::before {
+    opacity: 1;
+}
+
+/* ── Editor flex layout for row children ───────── */
+.wp-block[data-type="developer-starter/bs-row"] > .block-editor-inner-blocks > .block-editor-block-list__layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.wp-block[data-type="developer-starter/bs-row"] > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block {
+    flex: 1 0 0%;
+    min-width: 0;
+}

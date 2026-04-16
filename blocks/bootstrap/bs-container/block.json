@@ -1,0 +1,36 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/bs-container",
+    "version": "1.0.0",
+    "title": "BS Container",
+    "category": "design",
+    "icon": "layout",
+    "description": "Bootstrap container with fluid and responsive variants.",
+    "keywords": ["bootstrap", "container", "layout", "wrapper"],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        },
+        "className": true
+    },
+    "attributes": {
+        "containerType": {
+            "type": "string",
+            "default": "container"
+        },
+        "tagName": {
+            "type": "string",
+            "default": "div"
+        }
+    },
+    "editorScript": "file:../../../assets/js/blocks/bs-container.js",
+    "render": "file:./render.php"
+}

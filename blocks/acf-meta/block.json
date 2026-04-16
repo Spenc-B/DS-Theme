@@ -1,0 +1,64 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/acf-meta",
+    "version": "1.0.0",
+    "title": "ACF Meta",
+    "category": "widgets",
+    "icon": "database",
+    "description": "Display an ACF field or post meta value. Link fields support href, mailto, and tel modes.",
+    "keywords": ["acf", "meta", "field", "custom", "data"],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": {
+            "background": true,
+            "text": true,
+            "link": true
+        },
+        "typography": {
+            "fontSize": true,
+            "fontFamily": true,
+            "fontWeight": true,
+            "lineHeight": true,
+            "letterSpacing": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    },
+    "attributes": {
+        "fieldKey": {
+            "type": "string",
+            "default": ""
+        },
+        "tagName": {
+            "type": "string",
+            "default": "p"
+        },
+        "linkType": {
+            "type": "string",
+            "default": "none"
+        },
+        "linkTarget": {
+            "type": "string",
+            "default": "_self"
+        },
+        "customText": {
+            "type": "string",
+            "default": ""
+        },
+        "prefix": {
+            "type": "string",
+            "default": ""
+        },
+        "suffix": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "editorScript": "file:../../../assets/js/blocks/acf-meta.js",
+    "render": "file:./render.php"
+}
