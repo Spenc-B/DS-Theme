@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-events",
-    "version": "2.0.0",
+    "version": "1.2.0",
     "title": "DS Events",
     "category": "ds-forms",
     "icon": "calendar-alt",

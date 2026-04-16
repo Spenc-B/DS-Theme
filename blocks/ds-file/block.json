@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-file",
-    "version": "2.1.0",
+    "version": "1.2.0",
     "title": "DS File",
     "category": "ds-content",
     "icon": "media-default",

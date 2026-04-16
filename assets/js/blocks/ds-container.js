@@ -31,6 +31,13 @@
         { label: 'footer', value: 'footer' },
     ];
 
+    var TEMPLATE = [
+        ['developer-starter/ds-row', {}, [
+            ['developer-starter/ds-column'],
+            ['developer-starter/ds-column'],
+        ]],
+    ];
+
     blocks.registerBlockType('developer-starter/ds-container', {
         edit: function (props) {
             var attrs = props.attributes;
@@ -59,7 +66,7 @@
                         })
                     )
                 ),
-                el(attrs.tagName || 'div', blockProps, el(InnerBlocks))
+                el(attrs.tagName || 'div', blockProps, el(InnerBlocks, { template: TEMPLATE }))
             );
         },
 

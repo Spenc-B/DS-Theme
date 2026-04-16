@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-progress",
-    "version": "2.1.0",
+    "version": "1.2.0",
     "title": "DS Progress",
     "category": "ds-content",
     "icon": "minus",

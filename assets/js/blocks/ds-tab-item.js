@@ -2,6 +2,7 @@
  * DS Tab Item - Block Editor registration.
  *
  * Single tab panel with label and InnerBlocks content.
+ * Styled to look like a Bootstrap tab pane inside the tabbed container.
  */
 (function (blocks, blockEditor, components, element) {
     var el = element.createElement;
@@ -22,7 +23,13 @@
             }
 
             var blockProps = useBlockProps({
-                style: { border: '1px solid #e0e0e0', borderRadius: '4px', marginBottom: '8px' },
+                style: {
+                    border: '1px solid #dee2e6',
+                    borderTop: '3px solid #0d6efd',
+                    borderRadius: '0 0 4px 4px',
+                    marginBottom: '12px',
+                    background: '#fff',
+                },
             });
 
             return el(
@@ -47,13 +54,16 @@
                     el('div', {
                         style: {
                             padding: '4px 12px',
-                            background: '#f0f0f0',
-                            borderBottom: '1px solid #e0e0e0',
-                            fontSize: '12px',
-                            fontWeight: 'bold',
+                            background: '#f8f9fa',
+                            borderBottom: '1px solid #dee2e6',
+                            fontSize: '11px',
+                            fontWeight: '600',
+                            color: '#0d6efd',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.04em',
                         },
                     }, a.label || 'Tab'),
-                    el('div', { style: { padding: '12px' } },
+                    el('div', { style: { padding: '16px' } },
                         el(InnerBlocks, { template: TEMPLATE })
                     )
                 )

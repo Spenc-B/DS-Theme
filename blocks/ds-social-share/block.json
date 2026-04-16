@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-social-share",
-    "version": "2.0.0",
+    "version": "1.2.0",
     "title": "DS Social Share",
     "category": "ds-social",
     "icon": "share-alt2",

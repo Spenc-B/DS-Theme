@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-gallery",
-    "version": "2.1.0",
+    "version": "1.2.0",
     "title": "DS Gallery",
     "category": "ds-content",
     "icon": "format-gallery",

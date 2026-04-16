@@ -183,6 +183,17 @@ function ds_blocks_editor_assets(): void {
             filemtime($css_file)
         );
     }
+
+    $ext_js = get_template_directory() . '/assets/js/ds-editor-extensions.js';
+    if (file_exists($ext_js)) {
+        wp_enqueue_script(
+            'ds-editor-extensions',
+            get_template_directory_uri() . '/assets/js/ds-editor-extensions.js',
+            ['wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-compose', 'wp-hooks'],
+            filemtime($ext_js),
+            true
+        );
+    }
 }
 add_action('enqueue_block_editor_assets', 'ds_blocks_editor_assets');
 

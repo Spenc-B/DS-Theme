@@ -45,6 +45,41 @@ function ds_enqueue_bootstrap(): void {
         $file = $js_files[$mode] ?? $js_files['bundle'];
 
         wp_enqueue_script('bootstrap', $base_url . $file, [], $version, true);
+
+        /* Disable JS constructors for components toggled off in admin */
+        $disabled = ds_setting('bootstrap_disabled');
+        if (is_array($disabled) && $disabled) {
+            $slug_to_constructor = [
+                'accordion'  => 'Accordion',
+                'carousel'   => 'Carousel',
+                'collapse'   => 'Collapse',
+                'dropdowns'  => 'Dropdown',
+                'modal'      => 'Modal',
+                'offcanvas'  => 'Offcanvas',
+                'popovers'   => 'Popover',
+                'scrollspy'  => 'ScrollSpy',
+                'toasts'     => 'Toast',
+                'tooltips'   => 'Tooltip',
+                'navs_tabs'  => 'Tab',
+                'buttons'    => 'Button',
+            ];
+
+            $destroy = [];
+            foreach ($disabled as $slug) {
+                if (isset($slug_to_constructor[$slug])) {
+                    $destroy[] = $slug_to_constructor[$slug];
+                }
+            }
+
+            if ($destroy) {
+                $js = '(function(){var b=window.bootstrap;if(!b)return;';
+                foreach ($destroy as $name) {
+                    $js .= 'delete b.' . $name . ';';
+                }
+                $js .= '})();';
+                wp_add_inline_script('bootstrap', $js);
+            }
+        }
     }
 }
 add_action('wp_enqueue_scripts', 'ds_enqueue_bootstrap', 5);

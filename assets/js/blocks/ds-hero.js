@@ -16,29 +16,43 @@
     var SelectControl = components.SelectControl;
     var Button = components.Button;
 
+    var ToggleControl = components.ToggleControl;
+    var ColorPicker = components.ColorPicker;
+
     var TEMPLATE = [['developer-starter/ds-button', { text: 'Get Started', variant: 'primary', size: 'lg' }]];
 
     blocks.registerBlockType('developer-starter/ds-hero', {
         edit: function (props) {
             var a = props.attributes;
+            var showOverlay = a.showOverlay !== false;
 
             var wrapperStyle = {
                 minHeight: a.minHeight || '60vh',
-                backgroundImage: a.backgroundImageUrl ? 'url(' + a.backgroundImageUrl + ')' : 'none',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
                 position: 'relative',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: a.alignment === 'left' ? 'flex-start' : a.alignment === 'right' ? 'flex-end' : 'center',
                 textAlign: a.alignment || 'center',
                 color: '#fff',
+                overflow: 'hidden',
             };
 
+            var imgStyle = {
+                position: 'absolute',
+                inset: '0',
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                zIndex: 0,
+            };
+
+            var overlayColor = a.overlayColor || '#000000';
             var overlayStyle = {
                 position: 'absolute',
                 inset: '0',
-                backgroundColor: 'rgba(0,0,0,' + ((a.overlayOpacity || 50) / 100) + ')',
+                backgroundColor: overlayColor,
+                opacity: (a.overlayOpacity || 50) / 100,
+                zIndex: 1,
                 pointerEvents: 'none',
             };
 
@@ -55,7 +69,11 @@
                         { title: 'Hero Settings', initialOpen: true },
                         el(MediaUpload, {
                             onSelect: function (media) {
-                                props.setAttributes({ backgroundImageUrl: media.url, backgroundImageId: media.id });
+                                props.setAttributes({
+                                    backgroundImageUrl: media.url,
+                                    backgroundImageId: media.id,
+                                    backgroundImageAlt: media.alt || '',
+                                });
                             },
                             allowedTypes: ['image'],
                             value: a.backgroundImageId,
@@ -68,18 +86,16 @@
                             },
                         }),
                         a.backgroundImageUrl ? el(Button, {
-                            onClick: function () { props.setAttributes({ backgroundImageUrl: '', backgroundImageId: 0 }); },
+                            onClick: function () { props.setAttributes({ backgroundImageUrl: '', backgroundImageId: 0, backgroundImageAlt: '' }); },
                             isDestructive: true,
                             variant: 'link',
                             style: { marginBottom: '12px' },
                         }, 'Remove Image') : null,
-                        el(RangeControl, {
-                            label: 'Overlay Opacity',
-                            value: a.overlayOpacity,
-                            onChange: function (v) { props.setAttributes({ overlayOpacity: v }); },
-                            min: 0,
-                            max: 100,
-                        }),
+                        a.backgroundImageUrl ? el(TextControl, {
+                            label: 'Image Alt Text (SEO)',
+                            value: a.backgroundImageAlt || '',
+                            onChange: function (v) { props.setAttributes({ backgroundImageAlt: v }); },
+                        }) : null,
                         el(TextControl, {
                             label: 'Min Height',
                             help: 'CSS value, e.g. 60vh or 500px',
@@ -96,15 +112,43 @@
                             ],
                             onChange: function (v) { props.setAttributes({ alignment: v }); },
                         })
+                    ),
+                    el(
+                        PanelBody,
+                        { title: 'Overlay', initialOpen: true },
+                        el(ToggleControl, {
+                            label: 'Show overlay',
+                            checked: showOverlay,
+                            onChange: function (v) { props.setAttributes({ showOverlay: v }); },
+                        }),
+                        showOverlay ? el(RangeControl, {
+                            label: 'Overlay Opacity',
+                            value: a.overlayOpacity,
+                            onChange: function (v) { props.setAttributes({ overlayOpacity: v }); },
+                            min: 0,
+                            max: 100,
+                        }) : null,
+                        showOverlay ? el('div', { style: { marginTop: '8px' } },
+                            el('label', { style: { display: 'block', fontWeight: '600', marginBottom: '6px' } }, 'Overlay Colour'),
+                            el(ColorPicker, {
+                                color: overlayColor,
+                                onChangeComplete: function (next) {
+                                    props.setAttributes({ overlayColor: next.hex || overlayColor });
+                                },
+                            })
+                        ) : null
                     )
                 ),
                 el(
                     'div',
                     blockProps,
-                    el('div', { style: overlayStyle }),
+                    a.backgroundImageUrl
+                        ? el('img', { src: a.backgroundImageUrl, alt: a.backgroundImageAlt || '', style: imgStyle })
+                        : el('div', { style: Object.assign({}, imgStyle, { background: '#2c3e50' }) }),
+                    showOverlay ? el('div', { style: overlayStyle }) : null,
                     el(
                         'div',
-                        { className: 'container', style: { position: 'relative', zIndex: 1, padding: '40px 20px' } },
+                        { className: 'container', style: { position: 'relative', zIndex: 2, padding: '40px 20px' } },
                         el(RichText, {
                             tagName: 'h1',
                             className: 'display-4 fw-bold',

@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-accordion",
-    "version": "2.1.0",
+    "version": "1.2.0",
     "title": "DS Accordion",
     "category": "ds-layout",
     "icon": "list-view",

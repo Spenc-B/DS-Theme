@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-timeline",
-    "version": "2.1.0",
+    "version": "1.2.0",
     "title": "DS Timeline",
     "category": "ds-content",
     "icon": "backup",

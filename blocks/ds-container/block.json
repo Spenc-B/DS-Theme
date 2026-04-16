@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-container",
-    "version": "1.0.0",
+    "version": "1.2.0",
     "title": "DS Container",
     "category": "ds-layout",
     "icon": "layout",

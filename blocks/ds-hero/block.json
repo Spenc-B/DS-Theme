@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-hero",
-    "version": "2.1.0",
+    "version": "1.2.0",
     "title": "DS Hero",
     "category": "ds-layout",
     "icon": "cover-image",
@@ -45,6 +45,18 @@
         "overlayOpacity": {
             "type": "integer",
             "default": 50
+        },
+        "showOverlay": {
+            "type": "boolean",
+            "default": true
+        },
+        "overlayColor": {
+            "type": "string",
+            "default": "#000000"
+        },
+        "backgroundImageAlt": {
+            "type": "string",
+            "default": ""
         },
         "minHeight": {
             "type": "string",

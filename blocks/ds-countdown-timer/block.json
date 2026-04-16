@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-countdown-timer",
-    "version": "2.1.0",
+    "version": "1.2.0",
     "title": "DS Countdown Timer",
     "category": "ds-content",
     "icon": "clock",

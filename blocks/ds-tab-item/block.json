@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-tab-item",
-    "version": "2.1.0",
+    "version": "1.2.0",
     "title": "DS Tab Item",
     "category": "ds-layout",
     "icon": "table-row-after",

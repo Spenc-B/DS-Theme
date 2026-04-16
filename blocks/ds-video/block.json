@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-video",
-    "version": "2.1.0",
+    "version": "1.2.0",
     "title": "DS Video",
     "category": "ds-content",
     "icon": "video-alt3",

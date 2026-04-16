@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-code-display",
-    "version": "2.1.0",
+    "version": "1.2.0",
     "title": "DS Code Display",
     "category": "ds-content",
     "icon": "editor-code",

@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-fun-fact",
-    "version": "2.1.0",
+    "version": "1.2.0",
     "title": "DS Fun Fact",
     "category": "ds-content",
     "icon": "chart-bar",

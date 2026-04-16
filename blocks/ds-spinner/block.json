@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-spinner",
-    "version": "2.1.0",
+    "version": "1.2.0",
     "title": "DS Spinner",
     "category": "ds-content",
     "icon": "update",

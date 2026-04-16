@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-bootstrap-div",
-    "version": "2.1.0",
+    "version": "1.2.0",
     "title": "DS Bootstrap Div",
     "category": "ds-layout",
     "icon": "editor-code",
