@@ -1,11 +1,11 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-list-group",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS List Group",
     "category": "ds-content",
     "icon": "editor-ul",
-    "description": "Bootstrap-style list group with optional flush and horizontal variants.",
+    "description": "Bootstrap list group container with flush, horizontal, and numbered variants.",
     "keywords": [
         "list",
         "group",
@@ -25,7 +25,12 @@
         "horizontal": {
             "type": "boolean",
             "default": false
+        },
+        "numbered": {
+            "type": "boolean",
+            "default": false
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-list-group.js"
+    "editorScript": "file:../../assets/js/blocks/ds-list-group.js",
+    "render": "file:./render.php"
 }

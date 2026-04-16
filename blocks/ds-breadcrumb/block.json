@@ -1,11 +1,11 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-breadcrumb",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS Breadcrumb",
     "category": "ds-content",
     "icon": "arrow-right-alt",
-    "description": "Dynamic breadcrumb navigation.",
+    "description": "Bootstrap breadcrumb navigation — auto-generated from page hierarchy or manual JSON items.",
     "keywords": [
         "breadcrumb",
         "navigation",
@@ -25,6 +25,14 @@
         "showHome": {
             "type": "boolean",
             "default": true
+        },
+        "mode": {
+            "type": "string",
+            "default": "auto"
+        },
+        "itemsJson": {
+            "type": "string",
+            "default": ""
         }
     },
     "editorScript": "file:../../assets/js/blocks/ds-breadcrumb.js",

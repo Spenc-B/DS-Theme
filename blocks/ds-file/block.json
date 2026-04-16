@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-file",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS File",
     "category": "ds-content",
     "icon": "media-default",
@@ -44,5 +44,6 @@
             "default": true
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-file.js"
+    "editorScript": "file:../../assets/js/blocks/ds-file.js",
+    "render": "file:./render.php"
 }

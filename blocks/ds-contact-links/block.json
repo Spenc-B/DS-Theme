@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-contact-links",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS Contact Links",
     "category": "ds-forms",
     "icon": "phone",
@@ -41,5 +41,6 @@
             "default": true
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-contact-links.js"
+    "editorScript": "file:../../assets/js/blocks/ds-contact-links.js",
+    "render": "file:./render.php"
 }

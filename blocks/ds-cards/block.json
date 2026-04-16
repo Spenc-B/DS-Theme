@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-cards",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS Cards",
     "category": "ds-content",
     "icon": "grid-view",
@@ -30,5 +30,6 @@
     "editorScript": "file:../../assets/js/blocks/ds-cards.js",
     "allowedBlocks": [
         "developer-starter/ds-card"
-    ]
+    ],
+    "render": "file:./render.php"
 }

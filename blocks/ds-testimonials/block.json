@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-testimonials",
-    "version": "1.0.0",
+    "version": "2.1.0",
     "title": "DS Testimonials",
     "category": "ds-forms",
     "icon": "format-quote",
@@ -9,8 +9,7 @@
     "keywords": [
         "testimonial",
         "quote",
-        "review",
-        "lumina"
+        "review"
     ],
     "textdomain": "developer-starter",
     "supports": {
@@ -29,18 +28,15 @@
     "attributes": {
         "quote": {
             "type": "string",
-            "source": "html",
-            "selector": ".ds-testimonial__quote"
+            "default": ""
         },
         "authorName": {
             "type": "string",
-            "source": "html",
-            "selector": ".ds-testimonial__name"
+            "default": ""
         },
         "authorRole": {
             "type": "string",
-            "source": "html",
-            "selector": ".ds-testimonial__role"
+            "default": ""
         },
         "imageId": {
             "type": "number"
@@ -54,5 +50,6 @@
             "default": 5
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-testimonials.js"
+    "editorScript": "file:../../assets/js/blocks/ds-testimonials.js",
+    "render": "file:./render.php"
 }

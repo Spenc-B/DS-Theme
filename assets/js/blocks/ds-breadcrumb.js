@@ -4,18 +4,32 @@
 (function (blocks, blockEditor, components, element) {
     var el = element.createElement;
     var InspectorControls = blockEditor.InspectorControls;
-    var InnerBlocks = blockEditor.InnerBlocks;
     var useBlockProps = blockEditor.useBlockProps;
     var PanelBody = components.PanelBody;
     var TextControl = components.TextControl;
+    var TextareaControl = components.TextareaControl;
     var ToggleControl = components.ToggleControl;
-    var RangeControl = components.RangeControl;
     var SelectControl = components.SelectControl;
 
     blocks.registerBlockType('developer-starter/ds-breadcrumb', {
         edit: function (props) {
             var attrs = props.attributes;
-            var blockProps = useBlockProps({ className: 'ds-breadcrumb' });
+
+            // Parse manual items for preview.
+            var items;
+            try {
+                items = JSON.parse(attrs.itemsJson || '[]');
+            } catch (e) {
+                items = [];
+            }
+
+            // Preview items.
+            var previewItems = attrs.mode === 'manual' && items.length
+                ? items
+                : [{ label: 'Home', url: '/' }, { label: 'Category', url: '#' }, { label: 'Current page', url: '' }];
+
+            var blockProps = useBlockProps({ className: 'ds-breadcrumb-preview' });
+
             return el(
                 element.Fragment,
                 null,
@@ -24,27 +38,54 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Breadcrumb Settings', initialOpen: true },
-                        el(TextControl, {
-                            label: 'Separator',
-                            value: attrs.separator,
-                            onChange: function (v) { props.setAttributes({ separator: v }); },
+                        { title: 'Breadcrumb Settings', initialOpen: true },
+                        el(SelectControl, {
+                            label: 'Mode',
+                            value: attrs.mode || 'auto',
+                            options: [
+                                { label: 'Auto (page hierarchy)', value: 'auto' },
+                                { label: 'Manual (JSON items)', value: 'manual' },
+                            ],
+                            onChange: function (v) { props.setAttributes({ mode: v }); },
                         }),
                         el(ToggleControl, {
-                            label: 'Showhome',
-                            checked: attrs.showHome,
+                            label: 'Show Home link',
+                            checked: attrs.showHome !== false,
                             onChange: function (v) { props.setAttributes({ showHome: v }); },
                         }),
+                        el(TextControl, {
+                            label: 'Separator',
+                            value: attrs.separator || '/',
+                            onChange: function (v) { props.setAttributes({ separator: v }); },
+                        }),
+                        attrs.mode === 'manual'
+                            ? el(TextareaControl, {
+                                label: 'Items JSON',
+                                help: '[{"label":"Home","url":"/"},{"label":"Page","url":""}]',
+                                value: attrs.itemsJson || '',
+                                onChange: function (v) { props.setAttributes({ itemsJson: v }); },
+                            })
+                            : null
                     )
                 ),
-                el('div', blockProps, el('p', null, 'DS Breadcrumb'))
+                el('div', blockProps,
+                    el('nav', { 'aria-label': 'Breadcrumb' },
+                        el('ol', { className: 'breadcrumb mb-0' },
+                            previewItems.map(function (item, i) {
+                                var isLast = i === previewItems.length - 1;
+                                return el('li', {
+                                    key: i,
+                                    className: 'breadcrumb-item' + (isLast ? ' active' : ''),
+                                }, item.label || 'Item');
+                            })
+                        )
+                    )
+                )
             );
         },
 
-        save: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps.save({ className: 'ds-breadcrumb' });
-            return el('div', blockProps, el('span', null, attrs.separator));
+        save: function () {
+            return null;
         },
     });
 })(

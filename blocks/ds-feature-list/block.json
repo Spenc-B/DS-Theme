@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-feature-list",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS Feature List",
     "category": "ds-content",
     "icon": "yes-alt",
@@ -28,5 +28,6 @@
             "default": 1
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-feature-list.js"
+    "editorScript": "file:../../assets/js/blocks/ds-feature-list.js",
+    "render": "file:./render.php"
 }

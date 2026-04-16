@@ -1,17 +1,20 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-tab-item",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS Tab Item",
     "category": "ds-layout",
     "icon": "table-row-after",
-    "description": "Single tab panel \u2014 use inside DS Tabs.",
+    "description": "Single tab panel - use inside DS Tabs.",
     "keywords": [
         "tab",
         "panel",
         "item"
     ],
     "textdomain": "developer-starter",
+    "parent": [
+        "developer-starter/ds-tabs"
+    ],
     "supports": {
         "html": false,
         "className": true
@@ -20,10 +23,14 @@
         "label": {
             "type": "string",
             "default": "Tab"
+        },
+        "uniqueId": {
+            "type": "string",
+            "default": ""
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-tab-item.js",
-    "parent": [
-        "developer-starter/ds-tabs"
-    ]
+    "usesContext": [
+        "ds-tabs/uniqueId"
+    ],
+    "editorScript": "file:../../assets/js/blocks/ds-tab-item.js"
 }

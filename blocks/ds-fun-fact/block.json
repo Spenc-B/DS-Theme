@@ -1,17 +1,16 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-fun-fact",
-    "version": "1.0.0",
+    "version": "2.1.0",
     "title": "DS Fun Fact",
     "category": "ds-content",
     "icon": "chart-bar",
-    "description": "Big statistic number with label \u2014 great for showcasing metrics.",
+    "description": "Big statistic number with label - great for showcasing metrics.",
     "keywords": [
         "counter",
         "stat",
         "number",
-        "metric",
-        "lumina"
+        "metric"
     ],
     "textdomain": "developer-starter",
     "supports": {
@@ -33,13 +32,11 @@
     "attributes": {
         "number": {
             "type": "string",
-            "source": "html",
-            "selector": ".ds-counter__number"
+            "default": "100"
         },
         "label": {
             "type": "string",
-            "source": "html",
-            "selector": ".ds-counter__label"
+            "default": "Happy Clients"
         },
         "prefix": {
             "type": "string",
@@ -50,5 +47,6 @@
             "default": ""
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-fun-fact.js"
+    "editorScript": "file:../../assets/js/blocks/ds-fun-fact.js",
+    "render": "file:./render.php"
 }

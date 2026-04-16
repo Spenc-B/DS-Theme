@@ -1,7 +1,7 @@
 /**
- * DS Fun Fact / Stat — Block Editor registration.
+ * DS Fun Fact - Block Editor registration.
  *
- * Large number display with label, prefix, and suffix.
+ * Big statistic number with optional prefix/suffix and label.
  */
 (function (blocks, blockEditor, components, element) {
     var el = element.createElement;
@@ -14,7 +14,7 @@
     blocks.registerBlockType('developer-starter/ds-fun-fact', {
         edit: function (props) {
             var a = props.attributes;
-            var blockProps = useBlockProps({ className: 'ds-counter' });
+            var blockProps = useBlockProps({ className: 'text-center p-4' });
 
             return el(
                 element.Fragment,
@@ -44,20 +44,19 @@
                     blockProps,
                     el(
                         'div',
-                        { className: 'ds-counter__value' },
-                        a.prefix ? el('span', { className: 'ds-counter__prefix' }, a.prefix) : null,
+                        { className: 'display-3 fw-bold' },
+                        a.prefix ? el('span', null, a.prefix) : null,
                         el(RichText, {
                             tagName: 'span',
-                            className: 'ds-counter__number',
                             value: a.number,
                             onChange: function (v) { props.setAttributes({ number: v }); },
                             placeholder: '100',
                         }),
-                        a.suffix ? el('span', { className: 'ds-counter__suffix' }, a.suffix) : null
+                        a.suffix ? el('span', null, a.suffix) : null
                     ),
                     el(RichText, {
                         tagName: 'div',
-                        className: 'ds-counter__label',
+                        className: 'lead mt-2',
                         value: a.label,
                         onChange: function (v) { props.setAttributes({ label: v }); },
                         placeholder: 'Happy Clients',
@@ -66,22 +65,8 @@
             );
         },
 
-        save: function (props) {
-            var a = props.attributes;
-            var blockProps = useBlockProps.save({ className: 'ds-counter' });
-
-            return el(
-                'div',
-                blockProps,
-                el(
-                    'div',
-                    { className: 'ds-counter__value' },
-                    a.prefix ? el('span', { className: 'ds-counter__prefix' }, a.prefix) : null,
-                    el(RichText.Content, { tagName: 'span', className: 'ds-counter__number', value: a.number }),
-                    a.suffix ? el('span', { className: 'ds-counter__suffix' }, a.suffix) : null
-                ),
-                el(RichText.Content, { tagName: 'div', className: 'ds-counter__label', value: a.label })
-            );
+        save: function () {
+            return null;
         },
     });
 })(

@@ -1,11 +1,11 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-badge",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS Badge",
     "category": "ds-content",
     "icon": "tag",
-    "description": "Inline badge/label with colour variants.",
+    "description": "Inline badge/label with Bootstrap colour variants and optional pill shape.",
     "keywords": [
         "badge",
         "label",
@@ -27,8 +27,9 @@
         },
         "pill": {
             "type": "boolean",
-            "default": false
+            "default": true
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-badge.js"
+    "editorScript": "file:../../assets/js/blocks/ds-badge.js",
+    "render": "file:./render.php"
 }

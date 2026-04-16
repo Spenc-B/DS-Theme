@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-countdown-timer",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS Countdown Timer",
     "category": "ds-content",
     "icon": "clock",
@@ -47,5 +47,6 @@
             "default": "Event has started!"
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-countdown-timer.js"
+    "editorScript": "file:../../assets/js/blocks/ds-countdown-timer.js",
+    "render": "file:./render.php"
 }

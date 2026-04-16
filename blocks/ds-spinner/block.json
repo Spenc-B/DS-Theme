@@ -1,11 +1,11 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-spinner",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS Spinner",
     "category": "ds-content",
     "icon": "update",
-    "description": "Loading spinner/indicator.",
+    "description": "Bootstrap loading spinner with border/grow variants, colour and size options.",
     "keywords": [
         "spinner",
         "loading",
@@ -27,12 +27,13 @@
         },
         "size": {
             "type": "string",
-            "default": "md"
+            "default": ""
         },
         "label": {
             "type": "string",
             "default": "Loading..."
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-spinner.js"
+    "editorScript": "file:../../assets/js/blocks/ds-spinner.js",
+    "render": "file:./render.php"
 }

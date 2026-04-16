@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-social-follow",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS Social Follow",
     "category": "ds-social",
     "icon": "share",
@@ -36,5 +36,6 @@
             "default": "circle"
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-social-follow.js"
+    "editorScript": "file:../../assets/js/blocks/ds-social-follow.js",
+    "render": "file:./render.php"
 }

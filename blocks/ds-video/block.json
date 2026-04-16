@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-video",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS Video",
     "category": "ds-content",
     "icon": "video-alt3",
@@ -44,5 +44,6 @@
             "default": 0
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-video.js"
+    "editorScript": "file:../../assets/js/blocks/ds-video.js",
+    "render": "file:./render.php"
 }

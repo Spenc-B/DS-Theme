@@ -1,21 +1,22 @@
 /**
- * DS Mailchimp — Block Editor registration.
+ * DS Mailchimp - Block Editor registration.
+ *
+ * Newsletter signup form with Bootstrap styling.
  */
 (function (blocks, blockEditor, components, element) {
     var el = element.createElement;
     var InspectorControls = blockEditor.InspectorControls;
-    var InnerBlocks = blockEditor.InnerBlocks;
     var useBlockProps = blockEditor.useBlockProps;
     var PanelBody = components.PanelBody;
     var TextControl = components.TextControl;
-    var ToggleControl = components.ToggleControl;
-    var RangeControl = components.RangeControl;
     var SelectControl = components.SelectControl;
 
     blocks.registerBlockType('developer-starter/ds-mailchimp', {
         edit: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps({ className: 'ds-mailchimp' });
+            var a = props.attributes;
+            var isInline = (a.layout || 'inline') === 'inline';
+            var blockProps = useBlockProps({});
+
             return el(
                 element.Fragment,
                 null,
@@ -24,37 +25,58 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Mailchimp Settings', initialOpen: true },
+                        { title: 'Form Settings', initialOpen: true },
                         el(TextControl, {
-                            label: 'Formaction',
-                            value: attrs.formAction,
+                            label: 'Form Action URL',
+                            help: 'Mailchimp form action URL',
+                            value: a.formAction,
                             onChange: function (v) { props.setAttributes({ formAction: v }); },
                         }),
                         el(TextControl, {
                             label: 'Placeholder',
-                            value: attrs.placeholder,
+                            value: a.placeholder,
                             onChange: function (v) { props.setAttributes({ placeholder: v }); },
                         }),
                         el(TextControl, {
-                            label: 'Buttontext',
-                            value: attrs.buttonText,
+                            label: 'Button Text',
+                            value: a.buttonText,
                             onChange: function (v) { props.setAttributes({ buttonText: v }); },
                         }),
-                        el(TextControl, {
+                        el(SelectControl, {
                             label: 'Layout',
-                            value: attrs.layout,
+                            value: a.layout || 'inline',
+                            options: [
+                                { label: 'Inline', value: 'inline' },
+                                { label: 'Stacked', value: 'stacked' },
+                            ],
                             onChange: function (v) { props.setAttributes({ layout: v }); },
-                        }),
+                        })
                     )
                 ),
-                el('div', blockProps, el('p', null, 'DS Mailchimp'))
+                el(
+                    'div',
+                    blockProps,
+                    el(
+                        'div',
+                        { className: isInline ? 'd-flex gap-2' : '' },
+                        el('input', {
+                            type: 'email',
+                            className: 'form-control' + (isInline ? '' : ' mb-2'),
+                            placeholder: a.placeholder || 'Enter your email',
+                            disabled: true,
+                        }),
+                        el('button', {
+                            type: 'button',
+                            className: 'btn btn-primary',
+                            disabled: true,
+                        }, a.buttonText || 'Subscribe')
+                    )
+                )
             );
         },
 
-        save: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps.save({ className: 'ds-mailchimp' });
-            return el('div', blockProps, el('span', null, attrs.formAction));
+        save: function () {
+            return null;
         },
     });
 })(

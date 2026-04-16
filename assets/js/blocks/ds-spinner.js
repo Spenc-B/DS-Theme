@@ -4,18 +4,42 @@
 (function (blocks, blockEditor, components, element) {
     var el = element.createElement;
     var InspectorControls = blockEditor.InspectorControls;
-    var InnerBlocks = blockEditor.InnerBlocks;
     var useBlockProps = blockEditor.useBlockProps;
     var PanelBody = components.PanelBody;
     var TextControl = components.TextControl;
-    var ToggleControl = components.ToggleControl;
-    var RangeControl = components.RangeControl;
     var SelectControl = components.SelectControl;
+
+    var VARIANT_OPTIONS = [
+        { label: 'Border (ring)', value: 'border' },
+        { label: 'Grow (pulse)',  value: 'grow' },
+    ];
+
+    var COLOR_OPTIONS = [
+        { label: 'Primary',   value: 'primary' },
+        { label: 'Secondary', value: 'secondary' },
+        { label: 'Success',   value: 'success' },
+        { label: 'Danger',    value: 'danger' },
+        { label: 'Warning',   value: 'warning' },
+        { label: 'Info',      value: 'info' },
+        { label: 'Light',     value: 'light' },
+        { label: 'Dark',      value: 'dark' },
+    ];
+
+    var SIZE_OPTIONS = [
+        { label: 'Default', value: '' },
+        { label: 'Small',   value: 'sm' },
+    ];
 
     blocks.registerBlockType('developer-starter/ds-spinner', {
         edit: function (props) {
             var attrs = props.attributes;
-            var blockProps = useBlockProps({ className: 'ds-spinner' });
+
+            var spinnerClass = 'spinner-' + (attrs.variant || 'border')
+                + (attrs.size === 'sm' ? ' spinner-' + (attrs.variant || 'border') + '-sm' : '')
+                + ' text-' + (attrs.color || 'primary');
+
+            var blockProps = useBlockProps({ className: 'ds-spinner-editor' });
+
             return el(
                 element.Fragment,
                 null,
@@ -24,37 +48,42 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Spinner Settings', initialOpen: true },
-                        el(TextControl, {
+                        { title: 'Spinner Settings', initialOpen: true },
+                        el(SelectControl, {
                             label: 'Variant',
-                            value: attrs.variant,
+                            value: attrs.variant || 'border',
+                            options: VARIANT_OPTIONS,
                             onChange: function (v) { props.setAttributes({ variant: v }); },
                         }),
-                        el(TextControl, {
-                            label: 'Color',
-                            value: attrs.color,
+                        el(SelectControl, {
+                            label: 'Colour',
+                            value: attrs.color || 'primary',
+                            options: COLOR_OPTIONS,
                             onChange: function (v) { props.setAttributes({ color: v }); },
                         }),
-                        el(TextControl, {
+                        el(SelectControl, {
                             label: 'Size',
-                            value: attrs.size,
+                            value: attrs.size || '',
+                            options: SIZE_OPTIONS,
                             onChange: function (v) { props.setAttributes({ size: v }); },
                         }),
                         el(TextControl, {
-                            label: 'Label',
-                            value: attrs.label,
+                            label: 'Accessible label',
+                            value: attrs.label || '',
                             onChange: function (v) { props.setAttributes({ label: v }); },
-                        }),
+                        })
                     )
                 ),
-                el('div', blockProps, el('p', null, 'DS Spinner'))
+                el('div', blockProps,
+                    el('div', { className: spinnerClass, role: 'status' },
+                        el('span', { className: 'visually-hidden' }, attrs.label || 'Loading...')
+                    )
+                )
             );
         },
 
-        save: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps.save({ className: 'ds-spinner' });
-            return el('div', blockProps, el('span', null, attrs.variant));
+        save: function () {
+            return null;
         },
     });
 })(

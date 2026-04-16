@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-alert",
-    "version": "1.0.0",
+    "version": "2.1.0",
     "title": "DS Alert",
     "category": "ds-content",
     "icon": "warning",
@@ -10,8 +10,7 @@
         "alert",
         "notice",
         "warning",
-        "info",
-        "lumina"
+        "info"
     ],
     "textdomain": "developer-starter",
     "supports": {
@@ -32,5 +31,6 @@
             "default": false
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-alert.js"
+    "editorScript": "file:../../assets/js/blocks/ds-alert.js",
+    "render": "file:./render.php"
 }

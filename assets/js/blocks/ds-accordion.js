@@ -7,15 +7,25 @@
     var InnerBlocks = blockEditor.InnerBlocks;
     var useBlockProps = blockEditor.useBlockProps;
     var PanelBody = components.PanelBody;
-    var TextControl = components.TextControl;
     var ToggleControl = components.ToggleControl;
-    var RangeControl = components.RangeControl;
-    var SelectControl = components.SelectControl;
+
+    var TEMPLATE = [
+        ['developer-starter/ds-accordion-item', { title: 'Accordion Item 1' }],
+        ['developer-starter/ds-accordion-item', { title: 'Accordion Item 2' }],
+    ];
 
     blocks.registerBlockType('developer-starter/ds-accordion', {
         edit: function (props) {
             var attrs = props.attributes;
-            var blockProps = useBlockProps({ className: 'ds-accordion' });
+
+            // Auto-generate unique ID on first render.
+            if ( !attrs.uniqueId ) {
+                props.setAttributes({ uniqueId: 'acc-' + Math.random().toString(36).substring(2, 8) });
+            }
+
+            var accClass = 'accordion' + (attrs.flush ? ' accordion-flush' : '');
+            var blockProps = useBlockProps({ className: accClass });
+
             return el(
                 element.Fragment,
                 null,
@@ -24,21 +34,29 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Accordion Settings', initialOpen: true },
+                        { title: 'Accordion Settings', initialOpen: true },
                         el(ToggleControl, {
-                            label: 'Allowmultiple',
-                            checked: attrs.allowMultiple,
-                            onChange: function (v) { props.setAttributes({ allowMultiple: v }); },
+                            label: 'Always open (allow multiple)',
+                            checked: !!attrs.alwaysOpen,
+                            onChange: function (v) { props.setAttributes({ alwaysOpen: v }); },
                         }),
+                        el(ToggleControl, {
+                            label: 'Flush (no outer borders)',
+                            checked: !!attrs.flush,
+                            onChange: function (v) { props.setAttributes({ flush: v }); },
+                        })
                     )
                 ),
-                el('div', blockProps, el(InnerBlocks))
+                el('div', blockProps,
+                    el(InnerBlocks, {
+                        allowedBlocks: ['developer-starter/ds-accordion-item'],
+                        template: TEMPLATE,
+                    })
+                )
             );
         },
 
-        save: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps.save({ className: 'ds-accordion' });
+        save: function () {
             return el(InnerBlocks.Content);
         },
     });

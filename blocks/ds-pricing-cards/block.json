@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-pricing-cards",
-    "version": "1.0.0",
+    "version": "2.1.0",
     "title": "DS Pricing Cards",
     "category": "ds-forms",
     "icon": "tag",
@@ -10,34 +10,26 @@
         "pricing",
         "plan",
         "tier",
-        "card",
-        "lumina"
+        "card"
     ],
     "textdomain": "developer-starter",
     "supports": {
         "anchor": true,
         "html": false,
-        "className": true,
-        "spacing": {
-            "padding": true,
-            "margin": true
-        }
+        "className": true
     },
     "attributes": {
         "title": {
             "type": "string",
-            "source": "html",
-            "selector": ".ds-pricing__title"
+            "default": "Plan Name"
         },
         "price": {
             "type": "string",
-            "source": "html",
-            "selector": ".ds-pricing__price"
+            "default": "$29"
         },
         "period": {
             "type": "string",
-            "source": "html",
-            "selector": ".ds-pricing__period"
+            "default": "/ month"
         },
         "featured": {
             "type": "boolean",
@@ -45,13 +37,13 @@
         },
         "buttonText": {
             "type": "string",
-            "source": "html",
-            "selector": ".ds-pricing__cta a"
+            "default": "Get Started"
         },
         "buttonUrl": {
             "type": "string",
             "default": "#"
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-pricing-cards.js"
+    "editorScript": "file:../../assets/js/blocks/ds-pricing-cards.js",
+    "render": "file:./render.php"
 }

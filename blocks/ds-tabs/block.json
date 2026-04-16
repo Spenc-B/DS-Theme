@@ -1,46 +1,44 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-tabs",
-    "version": "1.0.0",
+    "version": "2.1.0",
     "title": "DS Tabs",
     "category": "ds-layout",
     "icon": "table-row-before",
-    "description": "Tabbed content container \u2014 each tab has its own inner content.",
+    "description": "Bootstrap tabbed content container with nav tabs or pills.",
     "keywords": [
         "tabs",
         "tabbed",
         "toggle",
-        "sections",
-        "lumina"
+        "sections"
     ],
     "textdomain": "developer-starter",
     "supports": {
         "anchor": true,
         "html": false,
-        "className": true,
-        "spacing": {
-            "margin": true
-        }
+        "className": true
     },
     "attributes": {
-        "tabs": {
-            "type": "array",
-            "default": [
-                {
-                    "label": "Tab 1"
-                },
-                {
-                    "label": "Tab 2"
-                },
-                {
-                    "label": "Tab 3"
-                }
-            ]
+        "uniqueId": {
+            "type": "string",
+            "default": ""
         },
-        "activeTab": {
-            "type": "number",
-            "default": 0
+        "variant": {
+            "type": "string",
+            "default": "tabs"
+        },
+        "fill": {
+            "type": "boolean",
+            "default": false
+        },
+        "justified": {
+            "type": "boolean",
+            "default": false
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-tabs.js"
+    "providesContext": {
+        "ds-tabs/uniqueId": "uniqueId"
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-tabs.js",
+    "render": "file:./render.php"
 }

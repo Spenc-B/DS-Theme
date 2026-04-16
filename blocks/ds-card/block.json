@@ -1,27 +1,22 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-card",
-    "version": "1.0.0",
+    "version": "2.1.0",
     "title": "DS Card",
     "category": "ds-content",
     "icon": "format-aside",
-    "description": "Generic content card with optional image, title, text, and button.",
+    "description": "Bootstrap card with optional image, title, body content, and CTA button.",
     "keywords": [
         "card",
         "box",
         "content",
-        "cta",
-        "lumina"
+        "cta"
     ],
     "textdomain": "developer-starter",
     "supports": {
         "anchor": true,
         "html": false,
         "className": true,
-        "color": {
-            "background": true,
-            "text": true
-        },
         "spacing": {
             "padding": true,
             "margin": true
@@ -30,8 +25,7 @@
     "attributes": {
         "title": {
             "type": "string",
-            "source": "html",
-            "selector": ".ds-card__title"
+            "default": ""
         },
         "imageId": {
             "type": "number"
@@ -42,13 +36,25 @@
         },
         "buttonText": {
             "type": "string",
-            "source": "html",
-            "selector": ".ds-card__btn span"
+            "default": ""
         },
         "buttonUrl": {
             "type": "string",
             "default": ""
+        },
+        "buttonVariant": {
+            "type": "string",
+            "default": "primary"
+        },
+        "headerText": {
+            "type": "string",
+            "default": ""
+        },
+        "footerText": {
+            "type": "string",
+            "default": ""
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-card.js"
+    "editorScript": "file:../../assets/js/blocks/ds-card.js",
+    "render": "file:./render.php"
 }

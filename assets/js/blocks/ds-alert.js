@@ -1,8 +1,8 @@
 /**
  * DS Alert — Block Editor registration.
  *
- * Styled alert box with type selector (info, success, warning, danger, brand).
- * Uses InnerBlocks for content so you can put anything inside.
+ * Bootstrap alert with type variants and dismissible option.
+ * Renders via render.php (SSR).
  */
 (function (blocks, blockEditor, components, element) {
     var el = element.createElement;
@@ -18,7 +18,10 @@
         { label: 'Success (green)', value: 'success' },
         { label: 'Warning (yellow)', value: 'warning' },
         { label: 'Danger (red)', value: 'danger' },
-        { label: 'Brand (coral)', value: 'brand' },
+        { label: 'Primary', value: 'primary' },
+        { label: 'Secondary', value: 'secondary' },
+        { label: 'Light', value: 'light' },
+        { label: 'Dark', value: 'dark' },
     ];
 
     var ICONS = {
@@ -26,7 +29,10 @@
         success: '\u2705',
         warning: '\u26A0\uFE0F',
         danger: '\u274C',
-        brand: '\u25C6',
+        primary: '\u25C6',
+        secondary: '\u25C7',
+        light: '\u25CB',
+        dark: '\u25CF',
     };
 
     var TEMPLATE = [['core/paragraph', { placeholder: 'Alert message\u2026' }]];
@@ -34,8 +40,9 @@
     blocks.registerBlockType('developer-starter/ds-alert', {
         edit: function (props) {
             var a = props.attributes;
-            var cls = 'ds-alert ds-alert--' + a.type;
-            var blockProps = useBlockProps({ className: cls });
+            var cls = 'alert alert-' + (a.type || 'info');
+            if (a.dismissible) cls += ' alert-dismissible';
+            var blockProps = useBlockProps({ className: cls, role: 'alert' });
 
             return el(
                 element.Fragment,
@@ -48,13 +55,13 @@
                         { title: 'Alert Settings', initialOpen: true },
                         el(SelectControl, {
                             label: 'Type',
-                            value: a.type,
+                            value: a.type || 'info',
                             options: TYPE_OPTIONS,
                             onChange: function (v) { props.setAttributes({ type: v }); },
                         }),
                         el(ToggleControl, {
                             label: 'Dismissible',
-                            checked: a.dismissible,
+                            checked: !!a.dismissible,
                             onChange: function (v) { props.setAttributes({ dismissible: v }); },
                         })
                     )
@@ -62,40 +69,15 @@
                 el(
                     'div',
                     blockProps,
-                    el('span', { className: 'ds-alert__icon', 'aria-hidden': 'true' }, ICONS[a.type] || ICONS.info),
-                    el('div', { className: 'ds-alert__content' }, el(InnerBlocks, { template: TEMPLATE }))
+                    el('span', { className: 'me-2' }, ICONS[a.type] || ICONS.info),
+                    el(InnerBlocks, { template: TEMPLATE })
                 )
             );
         },
 
-        save: function (props) {
-            var a = props.attributes;
-            var cls = 'ds-alert ds-alert--' + a.type;
-            if (a.dismissible) cls += ' ds-alert--dismissible';
-            var blockProps = useBlockProps.save({ className: cls, role: 'alert' });
-
-            var ICONS_SAVE = {
-                info: '\u2139\uFE0F',
-                success: '\u2705',
-                warning: '\u26A0\uFE0F',
-                danger: '\u274C',
-                brand: '\u25C6',
-            };
-
-            return el(
-                'div',
-                blockProps,
-                el('span', { className: 'ds-alert__icon', 'aria-hidden': 'true' }, ICONS_SAVE[a.type] || ICONS_SAVE.info),
-                el('div', { className: 'ds-alert__content' }, el(InnerBlocks.Content)),
-                a.dismissible
-                    ? el('button', {
-                        className: 'ds-alert__close',
-                        type: 'button',
-                        'aria-label': 'Dismiss',
-                        onClick: null,
-                    }, '\u00D7')
-                    : null
-            );
+        save: function () {
+            var el = window.wp.element.createElement;
+            return el(window.wp.blockEditor.InnerBlocks.Content);
         },
     });
 })(

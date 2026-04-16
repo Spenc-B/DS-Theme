@@ -1,21 +1,25 @@
 /**
- * DS CTA Section — Block Editor registration.
+ * DS CTA Section - Block Editor registration.
+ *
+ * Full-width call-to-action banner with heading, subtitle, and button.
  */
 (function (blocks, blockEditor, components, element) {
     var el = element.createElement;
+    var RichText = blockEditor.RichText;
     var InspectorControls = blockEditor.InspectorControls;
-    var InnerBlocks = blockEditor.InnerBlocks;
     var useBlockProps = blockEditor.useBlockProps;
     var PanelBody = components.PanelBody;
     var TextControl = components.TextControl;
-    var ToggleControl = components.ToggleControl;
-    var RangeControl = components.RangeControl;
     var SelectControl = components.SelectControl;
 
     blocks.registerBlockType('developer-starter/ds-cta-section', {
         edit: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps({ className: 'ds-cta-section' });
+            var a = props.attributes;
+            var blockProps = useBlockProps({
+                className: 'py-5',
+                style: { textAlign: a.alignment || 'center' },
+            });
+
             return el(
                 element.Fragment,
                 null,
@@ -24,42 +28,58 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS CTA Section Settings', initialOpen: true },
+                        { title: 'CTA Section Settings', initialOpen: true },
                         el(TextControl, {
-                            label: 'Heading',
-                            value: attrs.heading,
-                            onChange: function (v) { props.setAttributes({ heading: v }); },
-                        }),
-                        el(TextControl, {
-                            label: 'Subtitle',
-                            value: attrs.subtitle,
-                            onChange: function (v) { props.setAttributes({ subtitle: v }); },
-                        }),
-                        el(TextControl, {
-                            label: 'Buttontext',
-                            value: attrs.buttonText,
-                            onChange: function (v) { props.setAttributes({ buttonText: v }); },
-                        }),
-                        el(TextControl, {
-                            label: 'Buttonurl',
-                            value: attrs.buttonUrl,
+                            label: 'Button URL',
+                            value: a.buttonUrl,
                             onChange: function (v) { props.setAttributes({ buttonUrl: v }); },
                         }),
-                        el(TextControl, {
+                        el(SelectControl, {
                             label: 'Alignment',
-                            value: attrs.alignment,
+                            value: a.alignment || 'center',
+                            options: [
+                                { label: 'Left', value: 'left' },
+                                { label: 'Center', value: 'center' },
+                                { label: 'Right', value: 'right' },
+                            ],
                             onChange: function (v) { props.setAttributes({ alignment: v }); },
-                        }),
+                        })
                     )
                 ),
-                el('div', blockProps, el('p', null, 'DS CTA Section'))
+                el(
+                    'section',
+                    blockProps,
+                    el(
+                        'div',
+                        { className: 'container' },
+                        el(RichText, {
+                            tagName: 'h2',
+                            className: 'display-5 fw-bold mb-3',
+                            value: a.heading,
+                            onChange: function (v) { props.setAttributes({ heading: v }); },
+                            placeholder: 'Call to Action Heading...',
+                        }),
+                        el(RichText, {
+                            tagName: 'p',
+                            className: 'lead mb-4',
+                            value: a.subtitle,
+                            onChange: function (v) { props.setAttributes({ subtitle: v }); },
+                            placeholder: 'Subtitle text...',
+                        }),
+                        el(RichText, {
+                            tagName: 'span',
+                            className: 'btn btn-primary btn-lg',
+                            value: a.buttonText,
+                            onChange: function (v) { props.setAttributes({ buttonText: v }); },
+                            placeholder: 'Learn More',
+                        })
+                    )
+                )
             );
         },
 
-        save: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps.save({ className: 'ds-cta-section' });
-            return el('div', blockProps, el('span', null, attrs.heading));
+        save: function () {
+            return null;
         },
     });
 })(

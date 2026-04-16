@@ -1,21 +1,27 @@
 /**
- * DS Countdown Timer — Block Editor registration.
+ * DS Countdown Timer - Block Editor registration.
+ *
+ * Countdown to a target date/time with configurable segments.
  */
 (function (blocks, blockEditor, components, element) {
     var el = element.createElement;
     var InspectorControls = blockEditor.InspectorControls;
-    var InnerBlocks = blockEditor.InnerBlocks;
     var useBlockProps = blockEditor.useBlockProps;
     var PanelBody = components.PanelBody;
     var TextControl = components.TextControl;
     var ToggleControl = components.ToggleControl;
-    var RangeControl = components.RangeControl;
-    var SelectControl = components.SelectControl;
 
     blocks.registerBlockType('developer-starter/ds-countdown-timer', {
         edit: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps({ className: 'ds-countdown-timer' });
+            var a = props.attributes;
+            var blockProps = useBlockProps({ className: 'text-center p-4' });
+
+            var segments = [];
+            if (a.showDays) segments.push('Days');
+            if (a.showHours) segments.push('Hours');
+            if (a.showMinutes) segments.push('Minutes');
+            if (a.showSeconds) segments.push('Seconds');
+
             return el(
                 element.Fragment,
                 null,
@@ -24,47 +30,62 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Countdown Timer Settings', initialOpen: true },
+                        { title: 'Timer Settings', initialOpen: true },
                         el(TextControl, {
-                            label: 'Targetdate',
-                            value: attrs.targetDate,
+                            label: 'Target Date',
+                            help: 'Format: YYYY-MM-DDTHH:MM (e.g. 2025-12-31T00:00)',
+                            value: a.targetDate,
                             onChange: function (v) { props.setAttributes({ targetDate: v }); },
                         }),
+                        el(TextControl, {
+                            label: 'Expired Message',
+                            value: a.expiredMessage,
+                            onChange: function (v) { props.setAttributes({ expiredMessage: v }); },
+                        }),
                         el(ToggleControl, {
-                            label: 'Showdays',
-                            checked: attrs.showDays,
+                            label: 'Show Days',
+                            checked: a.showDays,
                             onChange: function (v) { props.setAttributes({ showDays: v }); },
                         }),
                         el(ToggleControl, {
-                            label: 'Showhours',
-                            checked: attrs.showHours,
+                            label: 'Show Hours',
+                            checked: a.showHours,
                             onChange: function (v) { props.setAttributes({ showHours: v }); },
                         }),
                         el(ToggleControl, {
-                            label: 'Showminutes',
-                            checked: attrs.showMinutes,
+                            label: 'Show Minutes',
+                            checked: a.showMinutes,
                             onChange: function (v) { props.setAttributes({ showMinutes: v }); },
                         }),
                         el(ToggleControl, {
-                            label: 'Showseconds',
-                            checked: attrs.showSeconds,
+                            label: 'Show Seconds',
+                            checked: a.showSeconds,
                             onChange: function (v) { props.setAttributes({ showSeconds: v }); },
-                        }),
-                        el(TextControl, {
-                            label: 'Expiredmessage',
-                            value: attrs.expiredMessage,
-                            onChange: function (v) { props.setAttributes({ expiredMessage: v }); },
-                        }),
+                        })
                     )
                 ),
-                el('div', blockProps, el('p', null, 'DS Countdown Timer'))
+                el(
+                    'div',
+                    blockProps,
+                    el('div', { style: { fontSize: '13px', color: '#757575', marginBottom: '8px' } },
+                        'Target: ' + (a.targetDate || 'Not set')
+                    ),
+                    el(
+                        'div',
+                        { className: 'd-flex justify-content-center gap-3' },
+                        segments.map(function (seg) {
+                            return el('div', { key: seg, className: 'text-center' },
+                                el('div', { className: 'display-6 fw-bold' }, '00'),
+                                el('div', { className: 'small text-muted' }, seg)
+                            );
+                        })
+                    )
+                )
             );
         },
 
-        save: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps.save({ className: 'ds-countdown-timer' });
-            return el('div', blockProps, el('span', null, attrs.targetDate));
+        save: function () {
+            return null;
         },
     });
 })(

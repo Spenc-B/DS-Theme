@@ -1,17 +1,16 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-progress",
-    "version": "1.0.0",
+    "version": "2.1.0",
     "title": "DS Progress",
     "category": "ds-content",
     "icon": "minus",
-    "description": "Labelled progress or skill bar with percentage fill.",
+    "description": "Bootstrap progress bar with label, colour variants, striped and animated options.",
     "keywords": [
         "progress",
         "bar",
         "skill",
-        "percentage",
-        "lumina"
+        "percentage"
     ],
     "textdomain": "developer-starter",
     "supports": {
@@ -25,8 +24,7 @@
     "attributes": {
         "label": {
             "type": "string",
-            "source": "html",
-            "selector": ".ds-progress__label"
+            "default": ""
         },
         "percentage": {
             "type": "number",
@@ -36,10 +34,27 @@
             "type": "boolean",
             "default": true
         },
+        "variant": {
+            "type": "string",
+            "default": ""
+        },
+        "striped": {
+            "type": "boolean",
+            "default": false
+        },
+        "animated": {
+            "type": "boolean",
+            "default": false
+        },
         "barColor": {
+            "type": "string",
+            "default": ""
+        },
+        "height": {
             "type": "string",
             "default": ""
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-progress.js"
+    "editorScript": "file:../../assets/js/blocks/ds-progress.js",
+    "render": "file:./render.php"
 }

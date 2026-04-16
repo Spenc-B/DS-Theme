@@ -1,11 +1,11 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-accordion",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS Accordion",
     "category": "ds-layout",
     "icon": "list-view",
-    "description": "Accordion container \u2014 place DS Accordion Items inside.",
+    "description": "Bootstrap accordion container — place DS Accordion Items inside.",
     "keywords": [
         "accordion",
         "faq",
@@ -18,10 +18,22 @@
         "className": true
     },
     "attributes": {
-        "allowMultiple": {
+        "uniqueId": {
+            "type": "string",
+            "default": ""
+        },
+        "alwaysOpen": {
+            "type": "boolean",
+            "default": false
+        },
+        "flush": {
             "type": "boolean",
             "default": false
         }
+    },
+    "providesContext": {
+        "ds-accordion/uniqueId": "uniqueId",
+        "ds-accordion/alwaysOpen": "alwaysOpen"
     },
     "editorScript": "file:../../assets/js/blocks/ds-accordion.js",
     "allowedBlocks": [

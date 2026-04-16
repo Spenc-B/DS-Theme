@@ -1,21 +1,23 @@
 /**
- * DS AI Content — Block Editor registration.
+ * DS AI Content - Block Editor registration.
+ *
+ * AI-generated content placeholder with prompt configuration.
  */
 (function (blocks, blockEditor, components, element) {
     var el = element.createElement;
     var InspectorControls = blockEditor.InspectorControls;
-    var InnerBlocks = blockEditor.InnerBlocks;
     var useBlockProps = blockEditor.useBlockProps;
     var PanelBody = components.PanelBody;
+    var TextareaControl = components.TextareaControl;
     var TextControl = components.TextControl;
-    var ToggleControl = components.ToggleControl;
-    var RangeControl = components.RangeControl;
     var SelectControl = components.SelectControl;
+    var RangeControl = components.RangeControl;
 
     blocks.registerBlockType('developer-starter/ds-ai-content', {
         edit: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps({ className: 'ds-ai-content' });
+            var a = props.attributes;
+            var blockProps = useBlockProps({});
+
             return el(
                 element.Fragment,
                 null,
@@ -24,39 +26,56 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS AI Content Settings', initialOpen: true },
-                        el(TextControl, {
+                        { title: 'AI Settings', initialOpen: true },
+                        el(TextareaControl, {
                             label: 'Prompt',
-                            value: attrs.prompt,
+                            help: 'Describe the content you want generated',
+                            value: a.prompt,
                             onChange: function (v) { props.setAttributes({ prompt: v }); },
+                            rows: 4,
                         }),
-                        el(TextControl, {
-                            label: 'Generatedcontent',
-                            value: attrs.generatedContent,
-                            onChange: function (v) { props.setAttributes({ generatedContent: v }); },
-                        }),
-                        el(TextControl, {
+                        el(SelectControl, {
                             label: 'Model',
-                            value: attrs.model,
+                            value: a.model,
+                            options: [
+                                { label: 'GPT-4', value: 'gpt-4' },
+                                { label: 'GPT-3.5 Turbo', value: 'gpt-3.5-turbo' },
+                            ],
                             onChange: function (v) { props.setAttributes({ model: v }); },
                         }),
                         el(RangeControl, {
-                            label: 'Maxtokens',
-                            value: attrs.maxTokens,
+                            label: 'Max Tokens',
+                            value: a.maxTokens,
                             onChange: function (v) { props.setAttributes({ maxTokens: v }); },
-                            min: 0,
-                            max: 100,
-                        }),
+                            min: 50,
+                            max: 4000,
+                            step: 50,
+                        })
                     )
                 ),
-                el('div', blockProps, el('p', null, 'DS AI Content'))
+                el(
+                    'div',
+                    blockProps,
+                    a.generatedContent
+                        ? el('div', {
+                            className: 'p-3',
+                            dangerouslySetInnerHTML: { __html: a.generatedContent },
+                        })
+                        : el('div', {
+                            style: { padding: '24px', background: '#f8f9fa', borderRadius: '8px', textAlign: 'center', border: '1px dashed #dee2e6' },
+                        },
+                            el('div', { style: { fontSize: '24px', marginBottom: '8px' } }, '\uD83E\uDD16'),
+                            el('div', { className: 'fw-bold' }, 'AI Content Block'),
+                            a.prompt
+                                ? el('small', { className: 'text-muted' }, 'Prompt: ' + a.prompt.substring(0, 80) + (a.prompt.length > 80 ? '...' : ''))
+                                : el('small', { className: 'text-muted' }, 'Configure prompt in sidebar')
+                        )
+                )
             );
         },
 
-        save: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps.save({ className: 'ds-ai-content' });
-            return el('div', blockProps, el('span', null, attrs.prompt));
+        save: function () {
+            return null;
         },
     });
 })(

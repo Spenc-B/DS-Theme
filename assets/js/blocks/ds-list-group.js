@@ -7,15 +7,21 @@
     var InnerBlocks = blockEditor.InnerBlocks;
     var useBlockProps = blockEditor.useBlockProps;
     var PanelBody = components.PanelBody;
-    var TextControl = components.TextControl;
     var ToggleControl = components.ToggleControl;
-    var RangeControl = components.RangeControl;
-    var SelectControl = components.SelectControl;
 
     blocks.registerBlockType('developer-starter/ds-list-group', {
         edit: function (props) {
             var attrs = props.attributes;
-            var blockProps = useBlockProps({ className: 'ds-list-group' });
+
+            var listClass = 'list-group'
+                + (attrs.flush ? ' list-group-flush' : '')
+                + (attrs.horizontal ? ' list-group-horizontal' : '')
+                + (attrs.numbered ? ' list-group-numbered' : '');
+
+            var tag = attrs.numbered ? 'ol' : 'ul';
+
+            var blockProps = useBlockProps({ className: 'ds-list-group-editor' });
+
             return el(
                 element.Fragment,
                 null,
@@ -24,26 +30,38 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS List Group Settings', initialOpen: true },
+                        { title: 'List Group Settings', initialOpen: true },
                         el(ToggleControl, {
-                            label: 'Flush',
-                            checked: attrs.flush,
+                            label: 'Flush (no outer borders)',
+                            checked: !!attrs.flush,
                             onChange: function (v) { props.setAttributes({ flush: v }); },
                         }),
                         el(ToggleControl, {
-                            label: 'Horizontal',
-                            checked: attrs.horizontal,
+                            label: 'Horizontal layout',
+                            checked: !!attrs.horizontal,
                             onChange: function (v) { props.setAttributes({ horizontal: v }); },
                         }),
+                        el(ToggleControl, {
+                            label: 'Numbered',
+                            checked: !!attrs.numbered,
+                            onChange: function (v) { props.setAttributes({ numbered: v }); },
+                        })
                     )
                 ),
-                el('div', blockProps, el(InnerBlocks))
+                el('div', blockProps,
+                    el(tag, { className: listClass },
+                        el(InnerBlocks, {
+                            allowedBlocks: true,
+                            template: [
+                                ['core/paragraph', { placeholder: 'List item…', className: 'list-group-item' }],
+                            ],
+                        })
+                    )
+                )
             );
         },
 
-        save: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps.save({ className: 'ds-list-group' });
+        save: function () {
             return el(InnerBlocks.Content);
         },
     });

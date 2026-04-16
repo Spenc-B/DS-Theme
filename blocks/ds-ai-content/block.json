@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-ai-content",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS AI Content",
     "category": "ds-data",
     "icon": "lightbulb",
@@ -36,5 +36,6 @@
             "default": 500
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-ai-content.js"
+    "editorScript": "file:../../assets/js/blocks/ds-ai-content.js",
+    "render": "file:./render.php"
 }

@@ -1,21 +1,27 @@
 /**
- * DS Table — Block Editor registration.
+ * DS Table - Block Editor registration.
+ *
+ * Bootstrap-styled table with configurable rows/cols and style toggles.
+ * Uses a core/table inside InnerBlocks for content editing.
  */
 (function (blocks, blockEditor, components, element) {
     var el = element.createElement;
-    var InspectorControls = blockEditor.InspectorControls;
     var InnerBlocks = blockEditor.InnerBlocks;
+    var InspectorControls = blockEditor.InspectorControls;
     var useBlockProps = blockEditor.useBlockProps;
     var PanelBody = components.PanelBody;
-    var TextControl = components.TextControl;
     var ToggleControl = components.ToggleControl;
-    var RangeControl = components.RangeControl;
-    var SelectControl = components.SelectControl;
 
     blocks.registerBlockType('developer-starter/ds-table', {
         edit: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps({ className: 'ds-table' });
+            var a = props.attributes;
+            var cls = 'table';
+            if (a.striped) cls += ' table-striped';
+            if (a.bordered) cls += ' table-bordered';
+            if (a.hover) cls += ' table-hover';
+
+            var blockProps = useBlockProps({});
+
             return el(
                 element.Fragment,
                 null,
@@ -24,51 +30,47 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Table Settings', initialOpen: true },
+                        { title: 'Table Settings', initialOpen: true },
                         el(ToggleControl, {
-                            label: 'Striped',
-                            checked: attrs.striped,
+                            label: 'Striped rows',
+                            checked: !!a.striped,
                             onChange: function (v) { props.setAttributes({ striped: v }); },
                         }),
                         el(ToggleControl, {
                             label: 'Bordered',
-                            checked: attrs.bordered,
+                            checked: !!a.bordered,
                             onChange: function (v) { props.setAttributes({ bordered: v }); },
                         }),
                         el(ToggleControl, {
-                            label: 'Hover',
-                            checked: attrs.hover,
+                            label: 'Hover effect',
+                            checked: !!a.hover,
                             onChange: function (v) { props.setAttributes({ hover: v }); },
                         }),
                         el(ToggleControl, {
-                            label: 'Responsive',
-                            checked: attrs.responsive,
+                            label: 'Responsive wrapper',
+                            checked: !!a.responsive,
                             onChange: function (v) { props.setAttributes({ responsive: v }); },
-                        }),
-                        el(RangeControl, {
-                            label: 'Rows',
-                            value: attrs.rows,
-                            onChange: function (v) { props.setAttributes({ rows: v }); },
-                            min: 0,
-                            max: 100,
-                        }),
-                        el(RangeControl, {
-                            label: 'Cols',
-                            value: attrs.cols,
-                            onChange: function (v) { props.setAttributes({ cols: v }); },
-                            min: 0,
-                            max: 100,
-                        }),
+                        })
                     )
                 ),
-                el('div', blockProps, el('p', null, 'DS Table'))
+                el(
+                    'div',
+                    blockProps,
+                    el('div', {
+                        style: { fontSize: '12px', color: '#757575', marginBottom: '4px' },
+                    }, 'Table: ' + cls),
+                    el(InnerBlocks, {
+                        allowedBlocks: ['core/table'],
+                        template: [['core/table']],
+                        templateLock: 'all',
+                    })
+                )
             );
         },
 
-        save: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps.save({ className: 'ds-table' });
-            return el('div', blockProps, el('span', null, attrs.striped));
+        save: function () {
+            var el = window.wp.element.createElement;
+            return el(window.wp.blockEditor.InnerBlocks.Content);
         },
     });
 })(

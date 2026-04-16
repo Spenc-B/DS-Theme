@@ -1,11 +1,11 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-bootstrap-div",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS Bootstrap Div",
     "category": "ds-layout",
     "icon": "editor-code",
-    "description": "Generic div with custom Bootstrap utility classes.",
+    "description": "Generic wrapper element with custom Bootstrap utility classes and configurable HTML tag.",
     "keywords": [
         "bootstrap",
         "div",

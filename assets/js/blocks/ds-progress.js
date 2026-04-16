@@ -1,31 +1,55 @@
 /**
  * DS Progress Bar — Block Editor registration.
- *
- * Labelled progress / skill bar with percentage fill.
  */
 (function (blocks, blockEditor, components, element) {
     var el = element.createElement;
-    var RichText = blockEditor.RichText;
     var InspectorControls = blockEditor.InspectorControls;
     var useBlockProps = blockEditor.useBlockProps;
     var PanelBody = components.PanelBody;
+    var TextControl = components.TextControl;
     var RangeControl = components.RangeControl;
     var ToggleControl = components.ToggleControl;
+    var SelectControl = components.SelectControl;
     var ColorPalette = components.ColorPalette;
 
     var COLORS = [
         { name: 'Coral', color: '#E17055' },
         { name: 'Yellow', color: '#FDCB6E' },
-        { name: 'Blue', color: '#3498db' },
-        { name: 'Green', color: '#27ae60' },
+        { name: 'Blue', color: '#0d6efd' },
+        { name: 'Green', color: '#198754' },
+        { name: 'Red', color: '#dc3545' },
         { name: 'Dark', color: '#1a1a1a' },
+    ];
+
+    var VARIANT_OPTIONS = [
+        { label: 'Default (theme)', value: '' },
+        { label: 'Success', value: 'success' },
+        { label: 'Info', value: 'info' },
+        { label: 'Warning', value: 'warning' },
+        { label: 'Danger', value: 'danger' },
     ];
 
     blocks.registerBlockType('developer-starter/ds-progress', {
         edit: function (props) {
             var a = props.attributes;
-            var blockProps = useBlockProps({ className: 'ds-progress' });
-            var fill = a.barColor || '#E17055';
+            var blockProps = useBlockProps({ className: 'ds-progress-editor' });
+
+            var barClass = 'progress-bar'
+                + (a.variant ? ' bg-' + a.variant : '')
+                + (a.striped ? ' progress-bar-striped' : '')
+                + (a.animated ? ' progress-bar-animated' : '');
+
+            var barStyle = {
+                width: a.percentage + '%',
+            };
+            if ( a.barColor && !a.variant ) {
+                barStyle.backgroundColor = a.barColor;
+            }
+
+            var trackStyle = {};
+            if ( a.height ) {
+                trackStyle.height = a.height;
+            }
 
             return el(
                 element.Fragment,
@@ -36,6 +60,11 @@
                     el(
                         PanelBody,
                         { title: 'Progress Settings', initialOpen: true },
+                        el(TextControl, {
+                            label: 'Label',
+                            value: a.label || '',
+                            onChange: function (v) { props.setAttributes({ label: v }); },
+                        }),
                         el(RangeControl, {
                             label: 'Percentage',
                             value: a.percentage,
@@ -45,74 +74,65 @@
                         }),
                         el(ToggleControl, {
                             label: 'Show percentage text',
-                            checked: a.showPercentage,
+                            checked: a.showPercentage !== false,
                             onChange: function (v) { props.setAttributes({ showPercentage: v }); },
+                        }),
+                        el(SelectControl, {
+                            label: 'Colour variant',
+                            value: a.variant || '',
+                            options: VARIANT_OPTIONS,
+                            onChange: function (v) { props.setAttributes({ variant: v }); },
+                        }),
+                        el(ToggleControl, {
+                            label: 'Striped',
+                            checked: !!a.striped,
+                            onChange: function (v) { props.setAttributes({ striped: v }); },
+                        }),
+                        el(ToggleControl, {
+                            label: 'Animated stripes',
+                            checked: !!a.animated,
+                            onChange: function (v) { props.setAttributes({ animated: v }); },
+                        }),
+                        el(TextControl, {
+                            label: 'Height',
+                            value: a.height || '',
+                            help: 'e.g. 25px, 2rem',
+                            onChange: function (v) { props.setAttributes({ height: v }); },
                         })
                     ),
                     el(
                         PanelBody,
-                        { title: 'Bar Colour', initialOpen: false },
+                        { title: 'Custom Bar Colour', initialOpen: false },
+                        el('p', { style: { fontSize: '12px', color: '#757575' } }, 'Overrides variant when no variant is selected.'),
                         el(ColorPalette, {
                             colors: COLORS,
-                            value: a.barColor,
-                            onChange: function (v) { props.setAttributes({ barColor: v }); },
+                            value: a.barColor || undefined,
+                            onChange: function (v) { props.setAttributes({ barColor: v || '' }); },
                         })
                     )
                 ),
                 el(
                     'div',
                     blockProps,
+                    a.label
+                        ? el('div', { style: { display: 'flex', justifyContent: 'space-between', marginBottom: '4px' } },
+                            el('span', { style: { fontWeight: 600 } }, a.label),
+                            a.showPercentage !== false ? el('span', null, a.percentage + '%') : null
+                        )
+                        : null,
                     el(
                         'div',
-                        { className: 'ds-progress__header' },
-                        el(RichText, {
-                            tagName: 'span',
-                            className: 'ds-progress__label',
-                            value: a.label,
-                            onChange: function (v) { props.setAttributes({ label: v }); },
-                            placeholder: 'Skill name',
-                        }),
-                        a.showPercentage
-                            ? el('span', { className: 'ds-progress__pct' }, a.percentage + '%')
-                            : null
-                    ),
-                    el(
-                        'div',
-                        { className: 'ds-progress__track' },
-                        el('div', {
-                            className: 'ds-progress__fill',
-                            style: { width: a.percentage + '%', background: fill },
-                        })
+                        { className: 'progress', role: 'progressbar', 'aria-valuenow': a.percentage, 'aria-valuemin': '0', 'aria-valuemax': '100', style: trackStyle },
+                        el('div', { className: barClass, style: barStyle },
+                            !a.label && a.showPercentage !== false ? a.percentage + '%' : null
+                        )
                     )
                 )
             );
         },
 
-        save: function (props) {
-            var a = props.attributes;
-            var blockProps = useBlockProps.save({ className: 'ds-progress' });
-            var fill = a.barColor || '#E17055';
-
-            return el(
-                'div',
-                blockProps,
-                el(
-                    'div',
-                    { className: 'ds-progress__header' },
-                    el(RichText.Content, { tagName: 'span', className: 'ds-progress__label', value: a.label }),
-                    a.showPercentage
-                        ? el('span', { className: 'ds-progress__pct' }, a.percentage + '%')
-                        : null
-                ),
-                el(
-                    'div',
-                    { className: 'ds-progress__track', role: 'progressbar', 'aria-valuenow': a.percentage, 'aria-valuemin': '0', 'aria-valuemax': '100' },
-                    el('div', {
-                        className: 'ds-progress__fill',
-                        style: { width: a.percentage + '%', backgroundColor: fill },
-                    })
-                )
-            );
+        save: function () {
+            return null;
         },
     });
 })(

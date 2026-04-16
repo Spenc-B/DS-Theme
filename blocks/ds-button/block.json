@@ -1,11 +1,11 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-button",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS Button",
     "category": "ds-content",
     "icon": "button",
-    "description": "Styled button with link, size, and variant options.",
+    "description": "Styled button with link, variant, size, alignment, and custom colour options.",
     "keywords": [
         "button",
         "cta",
@@ -15,20 +15,16 @@
     "supports": {
         "anchor": true,
         "html": false,
-        "className": true,
-        "color": {
-            "background": true,
-            "text": true
-        }
+        "className": true
     },
     "attributes": {
         "text": {
             "type": "string",
-            "default": "Click Me"
+            "default": "Button"
         },
         "url": {
             "type": "string",
-            "default": ""
+            "default": "#"
         },
         "variant": {
             "type": "string",
@@ -36,7 +32,7 @@
         },
         "size": {
             "type": "string",
-            "default": "md"
+            "default": ""
         },
         "openInNewTab": {
             "type": "boolean",
@@ -45,7 +41,24 @@
         "fullWidth": {
             "type": "boolean",
             "default": false
+        },
+        "align": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": ""
+        },
+        "textColor": {
+            "type": "string",
+            "default": ""
+        },
+        "borderRadius": {
+            "type": "string",
+            "default": ""
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-button.js"
+    "editorScript": "file:../../assets/js/blocks/ds-button.js",
+    "render": "file:./render.php"
 }

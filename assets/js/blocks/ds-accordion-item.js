@@ -1,8 +1,7 @@
 /**
- * DS Accordion Item Item Item — Block Editor registration.
+ * DS Accordion Item - Block Editor registration.
  *
- * Expandable section using <details>/<summary>. RichText title,
- * InnerBlocks for body content.
+ * Bootstrap accordion-item with RichText title and InnerBlocks body.
  */
 (function (blocks, blockEditor, components, element) {
     var el = element.createElement;
@@ -13,12 +12,18 @@
     var PanelBody = components.PanelBody;
     var ToggleControl = components.ToggleControl;
 
-    var TEMPLATE = [['core/paragraph', { placeholder: 'Accordion content\u2026' }]];
+    var TEMPLATE = [['core/paragraph', { placeholder: 'Accordion content...' }]];
 
     blocks.registerBlockType('developer-starter/ds-accordion-item', {
         edit: function (props) {
             var a = props.attributes;
-            var blockProps = useBlockProps({ className: 'ds-accordion' });
+
+            // Auto-generate unique ID.
+            if ( !a.uniqueId ) {
+                props.setAttributes({ uniqueId: 'acc-item-' + Math.random().toString(36).substring(2, 8) });
+            }
+
+            var blockProps = useBlockProps({ className: 'accordion-item' });
 
             return el(
                 element.Fragment,
@@ -28,10 +33,10 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'Accordion Settings', initialOpen: true },
+                        { title: 'Item Settings', initialOpen: true },
                         el(ToggleControl, {
                             label: 'Open by default',
-                            checked: a.defaultOpen,
+                            checked: !!a.defaultOpen,
                             onChange: function (v) { props.setAttributes({ defaultOpen: v }); },
                         })
                     )
@@ -40,39 +45,29 @@
                     'div',
                     blockProps,
                     el(
-                        'div',
-                        { className: 'ds-accordion__header' },
-                        el('span', { className: 'ds-accordion__indicator', 'aria-hidden': 'true' }, '\u25BC'),
+                        'h2',
+                        { className: 'accordion-header' },
                         el(RichText, {
                             tagName: 'span',
-                            className: 'ds-accordion__title',
+                            className: 'accordion-button' + (a.defaultOpen ? '' : ' collapsed'),
                             value: a.title,
                             onChange: function (v) { props.setAttributes({ title: v }); },
-                            placeholder: 'Accordion title\u2026',
+                            placeholder: 'Accordion title...',
                         })
                     ),
-                    el('div', { className: 'ds-accordion__body' }, el(InnerBlocks, { template: TEMPLATE }))
+                    el(
+                        'div',
+                        { className: 'accordion-collapse', style: a.defaultOpen ? {} : { opacity: 0.5 } },
+                        el('div', { className: 'accordion-body' },
+                            el(InnerBlocks, { template: TEMPLATE })
+                        )
+                    )
                 )
             );
         },
 
-        save: function (props) {
-            var a = props.attributes;
-            var blockProps = useBlockProps.save({ className: 'ds-accordion' });
-            var detailsAttrs = {};
-            if (a.defaultOpen) detailsAttrs.open = true;
-
-            return el(
-                'details',
-                Object.assign({}, blockProps, detailsAttrs),
-                el(
-                    'summary',
-                    { className: 'ds-accordion__header' },
-                    el('span', { className: 'ds-accordion__indicator', 'aria-hidden': 'true' }, '\u25BC'),
-                    el(RichText.Content, { tagName: 'span', className: 'ds-accordion__title', value: a.title })
-                ),
-                el('div', { className: 'ds-accordion__body' }, el(InnerBlocks.Content))
-            );
+        save: function () {
+            return el(InnerBlocks.Content);
         },
     });
 })(

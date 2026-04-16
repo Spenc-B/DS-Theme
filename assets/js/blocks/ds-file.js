@@ -1,21 +1,23 @@
 /**
- * DS File — Block Editor registration.
+ * DS File - Block Editor registration.
+ *
+ * File download card with icon, name, size, and download button.
  */
 (function (blocks, blockEditor, components, element) {
     var el = element.createElement;
+    var MediaUpload = blockEditor.MediaUpload;
     var InspectorControls = blockEditor.InspectorControls;
-    var InnerBlocks = blockEditor.InnerBlocks;
     var useBlockProps = blockEditor.useBlockProps;
     var PanelBody = components.PanelBody;
     var TextControl = components.TextControl;
     var ToggleControl = components.ToggleControl;
-    var RangeControl = components.RangeControl;
-    var SelectControl = components.SelectControl;
+    var Button = components.Button;
 
     blocks.registerBlockType('developer-starter/ds-file', {
         edit: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps({ className: 'ds-file' });
+            var a = props.attributes;
+            var blockProps = useBlockProps({ className: 'card' });
+
             return el(
                 element.Fragment,
                 null,
@@ -24,49 +26,57 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS File Settings', initialOpen: true },
-                        el(RangeControl, {
-                            label: 'Fileid',
-                            value: attrs.fileId,
-                            onChange: function (v) { props.setAttributes({ fileId: v }); },
-                            min: 0,
-                            max: 100,
+                        { title: 'File Settings', initialOpen: true },
+                        el(MediaUpload, {
+                            onSelect: function (media) {
+                                props.setAttributes({
+                                    fileId: media.id,
+                                    fileUrl: media.url,
+                                    fileName: media.filename || media.title,
+                                    fileSize: media.filesizeHumanReadable || '',
+                                });
+                            },
+                            value: a.fileId,
+                            render: function (obj) {
+                                return el(Button, { onClick: obj.open, variant: 'secondary' },
+                                    a.fileUrl ? 'Replace File' : 'Select File'
+                                );
+                            },
                         }),
-                        el(TextControl, {
-                            label: 'Fileurl',
-                            value: attrs.fileUrl,
-                            onChange: function (v) { props.setAttributes({ fileUrl: v }); },
-                        }),
-                        el(TextControl, {
-                            label: 'Filename',
-                            value: attrs.fileName,
+                        a.fileUrl ? el(TextControl, {
+                            label: 'File Name',
+                            value: a.fileName,
                             onChange: function (v) { props.setAttributes({ fileName: v }); },
-                        }),
+                        }) : null,
                         el(TextControl, {
-                            label: 'Filesize',
-                            value: attrs.fileSize,
-                            onChange: function (v) { props.setAttributes({ fileSize: v }); },
-                        }),
-                        el(TextControl, {
-                            label: 'Buttontext',
-                            value: attrs.buttonText,
+                            label: 'Button Text',
+                            value: a.buttonText,
                             onChange: function (v) { props.setAttributes({ buttonText: v }); },
                         }),
                         el(ToggleControl, {
-                            label: 'Showicon',
-                            checked: attrs.showIcon,
+                            label: 'Show file icon',
+                            checked: a.showIcon !== false,
                             onChange: function (v) { props.setAttributes({ showIcon: v }); },
-                        }),
+                        })
                     )
                 ),
-                el('div', blockProps, el('p', null, 'DS File'))
+                el(
+                    'div',
+                    blockProps,
+                    el('div', { className: 'card-body d-flex align-items-center gap-3' },
+                        a.showIcon !== false ? el('span', { style: { fontSize: '24px' } }, '\uD83D\uDCC4') : null,
+                        el('div', { className: 'flex-grow-1' },
+                            el('div', { className: 'fw-bold' }, a.fileName || 'No file selected'),
+                            a.fileSize ? el('small', { className: 'text-muted' }, a.fileSize) : null
+                        ),
+                        el('span', { className: 'btn btn-outline-primary btn-sm' }, a.buttonText || 'Download')
+                    )
+                )
             );
         },
 
-        save: function (props) {
-            var attrs = props.attributes;
-            var blockProps = useBlockProps.save({ className: 'ds-file' });
-            return el('div', blockProps, el('span', null, attrs.fileId));
+        save: function () {
+            return null;
         },
     });
 })(

@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "developer-starter/ds-cta-card",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "DS CTA Card",
     "category": "ds-content",
     "icon": "megaphone",
@@ -43,5 +43,6 @@
             "default": "coral"
         }
     },
-    "editorScript": "file:../../assets/js/blocks/ds-cta-card.js"
+    "editorScript": "file:../../assets/js/blocks/ds-cta-card.js",
+    "render": "file:./render.php"
 }
