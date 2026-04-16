@@ -1,0 +1,26 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-counter",
+    "version": "1.0.0",
+    "title": "DS Counter",
+    "category": "widgets",
+    "icon": "chart-bar",
+    "description": "Big statistic number with label — great for showcasing metrics.",
+    "keywords": ["counter", "stat", "number", "metric", "lumina"],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": { "background": true, "text": true },
+        "spacing": { "padding": true, "margin": true },
+        "typography": { "fontSize": true }
+    },
+    "attributes": {
+        "number": { "type": "string", "source": "html", "selector": ".ds-counter__number" },
+        "label": { "type": "string", "source": "html", "selector": ".ds-counter__label" },
+        "prefix": { "type": "string", "default": "" },
+        "suffix": { "type": "string", "default": "" }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-counter.js"
+}

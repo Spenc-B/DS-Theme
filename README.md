@@ -17,7 +17,8 @@ A clean, lightweight Gutenberg parent theme with Bootstrap integration, ACF Pro 
 - **Variant Selection** — Full, Grid-only, Reboot, or Utilities CSS; Bundle or Core JS
 - **30 Component Toggles** — Enable/disable individual Bootstrap components
 - **Admin Bar Debugger** — Scans the DOM to detect which Bootstrap classes are in use on the current page
-- **Custom Blocks** — Container, Row, and Column blocks with Bootstrap class controls in the block sidebar
+- **Custom Blocks** — Container, Row, Column, Testimonial, Pricing Card, Counter, Alert, Accordion, and Team Member blocks
+- **6 Visual Blocks** — Testimonial, Pricing Card, Counter, Alert, Accordion, Team Member — fully editable in the block editor
 
 ### Admin Settings Dashboard
 Native WordPress Settings API page (no ACF required) with four tabs:
@@ -48,6 +49,12 @@ developer-starter/
 │   ├── acf-meta/
 │   │   ├── block.json               # ACF Meta block registration
 │   │   └── render.php               # Server-side render
+│   ├── ds-testimonial/block.json    # Testimonial card
+│   ├── ds-pricing/block.json        # Pricing tier card
+│   ├── ds-counter/block.json        # Stat / counter
+│   ├── ds-alert/block.json          # Alert / notice box
+│   ├── ds-accordion/block.json      # Accordion / FAQ item
+│   ├── ds-team-member/block.json    # Team member card
 │   └── bootstrap/
 │       ├── bs-container/
 │       │   ├── block.json           # Container block registration
@@ -130,6 +137,24 @@ Column block with sidebar controls for:
 - Offset per breakpoint
 - Order per breakpoint
 - Self-alignment: `align-self-*`
+
+### DS Testimonial
+Quote card with inline-editable quote, author name, role, and avatar (MediaUpload). Star rating (0–5) via sidebar control. Lumina-styled with coral left border and yellow stars.
+
+### DS Pricing Card
+Tier card with editable title, price, and period. Feature list via InnerBlocks (core/list). CTA button with editable text and URL. "Featured" toggle adds coral highlight + "Popular" badge.
+
+### DS Counter
+Large stat number with optional prefix/suffix (sidebar) and editable label. Coral accent colour.
+
+### DS Alert
+Styled notice box with 5 types: info (blue), success (green), warning (yellow), danger (red), brand (coral). InnerBlocks for content. Optional dismissible button.
+
+### DS Accordion Item
+Expandable FAQ section rendered as native `<details>`/`<summary>` HTML. RichText title, InnerBlocks body. "Open by default" toggle.
+
+### DS Team Member
+Centered card with circular photo (MediaUpload), editable name, role, and bio. Lumina border + surface background.
 
 ### ACF Meta
 Dynamic block that reads ACF fields or post meta and renders the value:

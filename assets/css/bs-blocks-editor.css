@@ -113,3 +113,54 @@
     flex: 1 0 0%;
     min-width: 0;
 }
+
+/* ── DS Visual Block editor hints ──────────────── */
+.wp-block[data-type="developer-starter/ds-testimonial"] .ds-testimonial,
+.wp-block[data-type="developer-starter/ds-pricing"] .ds-pricing,
+.wp-block[data-type="developer-starter/ds-team-member"] .ds-team {
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 18px;
+    padding: 2rem;
+}
+.wp-block[data-type="developer-starter/ds-pricing"] .ds-pricing { padding: 0; overflow: hidden; }
+.wp-block[data-type="developer-starter/ds-counter"] .ds-counter { text-align: center; padding: 2rem 1rem; }
+.wp-block[data-type="developer-starter/ds-counter"] .ds-counter__value {
+    font-size: 3.5rem; font-weight: 700; color: #E17055;
+    display: flex; align-items: baseline; justify-content: center; gap: .15em;
+}
+.wp-block[data-type="developer-starter/ds-counter"] .ds-counter__label { color: #7c7c7c; margin-top: .5rem; }
+.wp-block[data-type="developer-starter/ds-alert"] .ds-alert {
+    display: flex; align-items: flex-start; gap: .75rem;
+    padding: 1rem 1.25rem; border-radius: 9px; border-left: 4px solid;
+}
+.ds-alert--info    { background: #eaf4fb; border-color: #3498db; }
+.ds-alert--success { background: #eafaf1; border-color: #27ae60; }
+.ds-alert--warning { background: #fef9e7; border-color: #f39c12; }
+.ds-alert--danger  { background: #fdedec; border-color: #e74c3c; }
+.ds-alert--brand   { background: #fef0eb; border-color: #E17055; }
+.wp-block[data-type="developer-starter/ds-accordion"] .ds-accordion {
+    border: 1px solid rgba(0,0,0,.08); border-radius: 9px; overflow: hidden;
+}
+.wp-block[data-type="developer-starter/ds-accordion"] .ds-accordion__header {
+    display: flex; align-items: center; gap: .75rem; padding: 1rem 1.25rem; font-weight: 600;
+}
+.wp-block[data-type="developer-starter/ds-accordion"] .ds-accordion__body { padding: 0 1.25rem 1.25rem; }
+.wp-block[data-type="developer-starter/ds-team-member"] .ds-team { text-align: center; }
+.wp-block[data-type="developer-starter/ds-team-member"] .ds-team__photo {
+    width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(0,0,0,.08);
+}
+.wp-block[data-type="developer-starter/ds-team-member"] .ds-team__photo--placeholder {
+    width: 120px; height: 120px; border-radius: 50%; background: rgba(0,0,0,.06);
+    display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto;
+}
+.wp-block[data-type="developer-starter/ds-testimonial"] .ds-testimonial__star.is-filled { color: #FDCB6E; }
+.wp-block[data-type="developer-starter/ds-testimonial"] .ds-testimonial__quote {
+    border-left: 3px solid #E17055; padding-left: 1.5rem;
+}
+.wp-block[data-type="developer-starter/ds-pricing"] .ds-pricing__header {
+    text-align: center; padding: 2rem 2rem 1.25rem; border-bottom: 1px solid rgba(0,0,0,.08);
+}
+.wp-block[data-type="developer-starter/ds-pricing"] .ds-pricing__price {
+    font-size: 2.5rem; font-weight: 700; color: #E17055;
+}
+.wp-block[data-type="developer-starter/ds-pricing"] .ds-pricing--featured { border-color: #E17055; }

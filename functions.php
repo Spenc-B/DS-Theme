@@ -145,6 +145,22 @@ function ds_register_bootstrap_blocks(): void {
     if (is_dir($acf_meta_path)) {
         register_block_type($acf_meta_path);
     }
+
+    // DS visual blocks.
+    $ds_blocks = [
+        'ds-testimonial',
+        'ds-pricing',
+        'ds-counter',
+        'ds-alert',
+        'ds-accordion',
+        'ds-team-member',
+    ];
+    foreach ($ds_blocks as $slug) {
+        $path = get_template_directory() . '/blocks/' . $slug;
+        if (is_dir($path)) {
+            register_block_type($path);
+        }
+    }
 }
 add_action('init', 'ds_register_bootstrap_blocks');
 

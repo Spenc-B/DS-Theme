@@ -1,0 +1,22 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-alert",
+    "version": "1.0.0",
+    "title": "DS Alert",
+    "category": "widgets",
+    "icon": "warning",
+    "description": "Styled alert / notice box with type selector and inner content.",
+    "keywords": ["alert", "notice", "warning", "info", "lumina"],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "spacing": { "margin": true }
+    },
+    "attributes": {
+        "type": { "type": "string", "default": "info" },
+        "dismissible": { "type": "boolean", "default": false }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-alert.js"
+}

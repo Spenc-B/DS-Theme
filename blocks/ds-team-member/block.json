@@ -1,0 +1,26 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-team-member",
+    "version": "1.0.0",
+    "title": "DS Team Member",
+    "category": "widgets",
+    "icon": "admin-users",
+    "description": "Team member card with photo, name, role, and bio.",
+    "keywords": ["team", "member", "person", "staff", "lumina"],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": { "background": true, "text": true },
+        "spacing": { "padding": true, "margin": true }
+    },
+    "attributes": {
+        "name": { "type": "string", "source": "html", "selector": ".ds-team__name" },
+        "role": { "type": "string", "source": "html", "selector": ".ds-team__role" },
+        "bio": { "type": "string", "source": "html", "selector": ".ds-team__bio" },
+        "imageId": { "type": "number" },
+        "imageUrl": { "type": "string", "default": "" }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-team-member.js"
+}

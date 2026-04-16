@@ -2,6 +2,38 @@
 
 All notable changes to the Developer Starter theme are documented here.
 
+## [1.3.0] — 2025-07-16
+
+### Added
+- **6 new visual Gutenberg blocks** — fully editable in the block editor with RichText, MediaUpload, and InnerBlocks
+  - **DS Testimonial** — Quote card with avatar, name, role, and 0–5 star rating
+  - **DS Pricing Card** — Tier card with price/period, InnerBlocks feature list, CTA button, "featured" highlight toggle
+  - **DS Counter** — Large stat number with label and optional prefix/suffix
+  - **DS Alert** — Styled notice box with 5 types (info, success, warning, danger, brand), InnerBlocks content, optional dismiss button
+  - **DS Accordion Item** — Expandable FAQ section using native `<details>`/`<summary>`, RichText title, InnerBlocks body
+  - **DS Team Member** — Card with circular photo, name, role, and bio
+- Dark mode support for all new blocks
+- Editor CSS hints for new blocks
+
+### Files Added
+- `blocks/ds-testimonial/block.json`
+- `blocks/ds-pricing/block.json`
+- `blocks/ds-counter/block.json`
+- `blocks/ds-alert/block.json`
+- `blocks/ds-accordion/block.json`
+- `blocks/ds-team-member/block.json`
+- `assets/js/blocks/ds-testimonial.js`
+- `assets/js/blocks/ds-pricing.js`
+- `assets/js/blocks/ds-counter.js`
+- `assets/js/blocks/ds-alert.js`
+- `assets/js/blocks/ds-accordion.js`
+- `assets/js/blocks/ds-team-member.js`
+
+### Changed
+- `functions.php` — Registers all 6 new blocks
+- `style.css` — Frontend styles for all new blocks + dark mode overrides
+- `assets/css/bs-blocks-editor.css` — Editor visual hints for new blocks
+
 ## [1.2.0] — 2026-04-16
 
 ### Added

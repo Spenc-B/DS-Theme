@@ -7,7 +7,7 @@ Description: Lumina – a clean, lightweight Gutenberg parent theme with ACF Pro
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 8.0
-Version: 1.2.0
+Version: 1.3.0
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: developer-starter
@@ -400,3 +400,253 @@ body.is-dark-theme footer a { color: var(--ds-coral); }
   .ds-hexagon-wrap::after { width: 120px; height: 120px; }
   .ds-hexagon-wrap::before { width: 155px; height: 155px; }
 }
+
+/* ── DS Testimonial ────────────────────────────────── */
+.ds-testimonial {
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-radius);
+  padding: 2rem;
+  text-align: left;
+}
+.ds-testimonial__stars { margin-bottom: .75rem; font-size: 1.15rem; letter-spacing: .15em; }
+.ds-testimonial__star { color: var(--ds-line); }
+.ds-testimonial__star.is-filled { color: var(--ds-yellow); }
+.ds-testimonial__quote {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ds-text);
+  margin: 0 0 1.25rem;
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--ds-coral);
+}
+.ds-testimonial__author { display: flex; align-items: center; gap: 1rem; }
+.ds-testimonial__avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--ds-line);
+  flex-shrink: 0;
+}
+.ds-testimonial__avatar--placeholder {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ds-line); font-size: 1.4rem;
+}
+.ds-testimonial__meta { display: flex; flex-direction: column; }
+.ds-testimonial__name { font-weight: 600; color: var(--ds-heading); font-size: .95rem; }
+.ds-testimonial__role { color: var(--ds-muted); font-size: .85rem; }
+
+/* ── DS Pricing Card ───────────────────────────────── */
+.ds-pricing {
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-radius);
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.ds-pricing:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,.06);
+  transform: translateY(-4px);
+}
+.ds-pricing--featured {
+  border-color: var(--ds-coral);
+  box-shadow: 0 4px 24px rgba(225,112,85,.12);
+}
+.ds-pricing__badge {
+  position: absolute; top: 1rem; right: -2rem;
+  background: var(--ds-coral); color: #fff;
+  font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+  padding: .3rem 2.5rem;
+  transform: rotate(45deg);
+}
+.ds-pricing__header {
+  text-align: center;
+  padding: 2rem 2rem 1.25rem;
+  border-bottom: 1px solid var(--ds-line);
+}
+.ds-pricing__title {
+  font-weight: 300; letter-spacing: -.02em;
+  margin: 0 0 .75rem; font-size: 1.25rem; color: var(--ds-heading);
+}
+.ds-pricing__price-wrap { display: flex; align-items: baseline; justify-content: center; gap: .25rem; }
+.ds-pricing__price { font-size: 2.5rem; font-weight: 700; color: var(--ds-coral); }
+.ds-pricing__period { font-size: .9rem; color: var(--ds-muted); }
+.ds-pricing__body { padding: 1.5rem 2rem; flex: 1; }
+.ds-pricing__body .wp-block-list { list-style: none; padding: 0; margin: 0; }
+.ds-pricing__body .wp-block-list li::before {
+  content: '\2713'; color: var(--ds-coral); font-weight: 700; margin-right: .5rem;
+}
+.ds-pricing__body .wp-block-list li { padding: .35rem 0; color: var(--ds-text); }
+.ds-pricing__cta {
+  padding: 0 2rem 2rem;
+  text-align: center;
+}
+.ds-pricing__cta a {
+  display: inline-block;
+  padding: .75rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .95rem;
+  text-decoration: none;
+  border: 2px solid var(--ds-coral);
+  color: var(--ds-coral);
+  transition: background .2s, color .2s;
+}
+.ds-pricing__cta a:hover,
+.ds-pricing--featured .ds-pricing__cta a {
+  background: var(--ds-coral);
+  color: #fff;
+}
+
+/* ── DS Counter / Stat ─────────────────────────────── */
+.ds-counter {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.ds-counter__value {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ds-coral);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: .15em;
+}
+.ds-counter__prefix,
+.ds-counter__suffix { font-size: .6em; font-weight: 400; color: var(--ds-muted); }
+.ds-counter__label {
+  margin-top: .5rem;
+  font-size: 1rem;
+  color: var(--ds-muted);
+  letter-spacing: .02em;
+}
+
+/* ── DS Alert ──────────────────────────────────────── */
+.ds-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  padding: 1rem 1.25rem;
+  border-radius: calc(var(--ds-radius) / 2);
+  border-left: 4px solid;
+  position: relative;
+}
+.ds-alert__icon { font-size: 1.2rem; line-height: 1; flex-shrink: 0; margin-top: .15rem; }
+.ds-alert__content { flex: 1; }
+.ds-alert__content p { margin: 0; }
+.ds-alert__close {
+  background: none; border: none; cursor: pointer;
+  font-size: 1.25rem; line-height: 1; padding: 0;
+  opacity: .5; transition: opacity .2s;
+}
+.ds-alert__close:hover { opacity: 1; }
+.ds-alert--info    { background: #eaf4fb; border-color: #3498db; color: #1a5276; }
+.ds-alert--success { background: #eafaf1; border-color: #27ae60; color: #1e6e3e; }
+.ds-alert--warning { background: #fef9e7; border-color: #f39c12; color: #7d5a0b; }
+.ds-alert--danger  { background: #fdedec; border-color: #e74c3c; color: #922b21; }
+.ds-alert--brand   { background: #fef0eb; border-color: var(--ds-coral); color: #8b3a24; }
+
+/* ── DS Accordion Item ─────────────────────────────── */
+.ds-accordion {
+  border: 1px solid var(--ds-line);
+  border-radius: calc(var(--ds-radius) / 2);
+  overflow: hidden;
+  margin-bottom: .5rem;
+}
+.ds-accordion__header {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ds-heading);
+  list-style: none;
+  user-select: none;
+  transition: background .2s;
+}
+.ds-accordion__header:hover { background: var(--ds-surface); }
+.ds-accordion__header::-webkit-details-marker { display: none; }
+.ds-accordion__indicator {
+  font-size: .65rem;
+  transition: transform .25s ease;
+  flex-shrink: 0;
+}
+details[open] > .ds-accordion__header .ds-accordion__indicator {
+  transform: rotate(180deg);
+}
+.ds-accordion__title { flex: 1; }
+.ds-accordion__body {
+  padding: 0 1.25rem 1.25rem;
+  color: var(--ds-text);
+}
+
+/* ── DS Team Member ────────────────────────────────── */
+.ds-team {
+  text-align: center;
+  padding: 2rem;
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-radius);
+}
+.ds-team__photo-wrap { margin-bottom: 1.25rem; }
+.ds-team__photo {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--ds-line);
+  margin: 0 auto;
+  display: block;
+}
+.ds-team__photo--placeholder {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ds-line); font-size: 2.5rem;
+  width: 120px; height: 120px; border-radius: 50%; margin: 0 auto;
+}
+.ds-team__name {
+  font-weight: 300; letter-spacing: -.02em;
+  margin: 0 0 .25rem; font-size: 1.2rem; color: var(--ds-heading);
+}
+.ds-team__role {
+  color: var(--ds-coral);
+  font-size: .9rem;
+  font-weight: 600;
+  margin: 0 0 .75rem;
+}
+.ds-team__bio {
+  color: var(--ds-muted);
+  font-size: .9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Dark-mode overrides — new blocks ──────────────── */
+body.is-dark-theme .ds-testimonial,
+body.is-dark-theme .ds-pricing,
+body.is-dark-theme .ds-team {
+  background: #1e1e1e;
+  border-color: rgba(255,255,255,.08);
+  color: #ccc;
+}
+body.is-dark-theme .ds-testimonial__quote,
+body.is-dark-theme .ds-team__bio { color: #bbb; }
+body.is-dark-theme .ds-testimonial__name,
+body.is-dark-theme .ds-team__name,
+body.is-dark-theme .ds-pricing__title { color: #eee; }
+body.is-dark-theme .ds-accordion {
+  border-color: rgba(255,255,255,.08);
+}
+body.is-dark-theme .ds-accordion__header { color: #eee; }
+body.is-dark-theme .ds-accordion__header:hover { background: #2a2a2a; }
+body.is-dark-theme .ds-accordion__body { color: #bbb; }
+body.is-dark-theme .ds-alert--info    { background: #1a2a3a; color: #8ecae6; }
+body.is-dark-theme .ds-alert--success { background: #1a2e1a; color: #72d88a; }
+body.is-dark-theme .ds-alert--warning { background: #2e2a1a; color: #f0c95e; }
+body.is-dark-theme .ds-alert--danger  { background: #2e1a1a; color: #f08080; }
+body.is-dark-theme .ds-alert--brand   { background: #2e1e1a; color: #f0a080; }
