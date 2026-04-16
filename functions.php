@@ -52,15 +52,37 @@ function ds_setup(): void {
 }
 add_action('after_setup_theme', 'ds_setup');
 
-/* ── Block Category ────────────────────────────────────── */
+/* ── Block Categories ──────────────────────────────────── */
 
 function ds_block_category(array $categories): array {
-    array_unshift($categories, [
-        'slug'  => 'developer-starter',
-        'title' => __('Developer Starter', 'developer-starter'),
-        'icon'  => 'star-filled',
-    ]);
-    return $categories;
+    $ds_cats = [
+        [
+            'slug'  => 'ds-layout',
+            'title' => __('DS – Layout & Structure', 'developer-starter'),
+            'icon'  => 'layout',
+        ],
+        [
+            'slug'  => 'ds-content',
+            'title' => __('DS – Content & UI', 'developer-starter'),
+            'icon'  => 'editor-table',
+        ],
+        [
+            'slug'  => 'ds-social',
+            'title' => __('DS – Social & Sharing', 'developer-starter'),
+            'icon'  => 'share',
+        ],
+        [
+            'slug'  => 'ds-forms',
+            'title' => __('DS – Forms, Search & Marketing', 'developer-starter'),
+            'icon'  => 'forms',
+        ],
+        [
+            'slug'  => 'ds-data',
+            'title' => __('DS – Data & Utility', 'developer-starter'),
+            'icon'  => 'chart-bar',
+        ],
+    ];
+    return array_merge($ds_cats, $categories);
 }
 add_filter('block_categories_all', 'ds_block_category');
 
@@ -139,61 +161,30 @@ function ds_pattern_categories(): void {
 }
 add_action('init', 'ds_pattern_categories');
 
-/* ── Bootstrap Blocks ──────────────────────────────────── */
+/* ── Register All DS Blocks ─────────────────────────────── */
 
-function ds_register_bootstrap_blocks(): void {
-    $blocks_dir = get_template_directory() . '/blocks/bootstrap';
-    $block_dirs = ['bs-container', 'bs-row', 'bs-column'];
+function ds_register_blocks(): void {
+    $blocks_dir = get_template_directory() . '/blocks';
 
-    foreach ($block_dirs as $block) {
-        $path = $blocks_dir . '/' . $block;
-        if (is_dir($path)) {
-            register_block_type($path);
-        }
-    }
-
-    // ACF Meta block.
-    $acf_meta_path = get_template_directory() . '/blocks/acf-meta';
-    if (is_dir($acf_meta_path)) {
-        register_block_type($acf_meta_path);
-    }
-
-    // DS visual blocks.
-    $ds_blocks = [
-        'ds-testimonial',
-        'ds-pricing',
-        'ds-counter',
-        'ds-alert',
-        'ds-accordion',
-        'ds-team-member',
-        'ds-icon-box',
-        'ds-progress-bar',
-        'ds-divider',
-        'ds-card',
-        'ds-tabs',
-        'ds-logo-grid',
-    ];
-    foreach ($ds_blocks as $slug) {
-        $path = get_template_directory() . '/blocks/' . $slug;
-        if (is_dir($path)) {
-            register_block_type($path);
-        }
+    // Auto-register every block that has a block.json in blocks/*/.
+    foreach (glob($blocks_dir . '/*/block.json') as $block_json) {
+        register_block_type(dirname($block_json));
     }
 }
-add_action('init', 'ds_register_bootstrap_blocks');
+add_action('init', 'ds_register_blocks');
 
-function ds_bootstrap_blocks_editor_assets(): void {
-    $css_file = get_template_directory() . '/assets/css/bs-blocks-editor.css';
+function ds_blocks_editor_assets(): void {
+    $css_file = get_template_directory() . '/assets/css/ds-blocks-editor.css';
     if (file_exists($css_file)) {
         wp_enqueue_style(
-            'ds-bs-blocks-editor',
-            get_template_directory_uri() . '/assets/css/bs-blocks-editor.css',
+            'ds-blocks-editor',
+            get_template_directory_uri() . '/assets/css/ds-blocks-editor.css',
             [],
             filemtime($css_file)
         );
     }
 }
-add_action('enqueue_block_editor_assets', 'ds_bootstrap_blocks_editor_assets');
+add_action('enqueue_block_editor_assets', 'ds_blocks_editor_assets');
 
 /* ── Breadcrumbs Shortcode ─────────────────────────────── */
 

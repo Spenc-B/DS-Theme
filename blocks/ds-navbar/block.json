@@ -1,0 +1,45 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-navbar",
+    "version": "2.0.0",
+    "title": "DS Navbar",
+    "category": "ds-content",
+    "icon": "menu",
+    "description": "Responsive navbar with menu location selector.",
+    "keywords": [
+        "navbar",
+        "navigation",
+        "menu",
+        "header"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": {
+            "background": true,
+            "text": true
+        }
+    },
+    "attributes": {
+        "menuLocation": {
+            "type": "string",
+            "default": "ds-header-menu"
+        },
+        "variant": {
+            "type": "string",
+            "default": "light"
+        },
+        "expand": {
+            "type": "string",
+            "default": "lg"
+        },
+        "sticky": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-navbar.js",
+    "render": "file:./render.php"
+}

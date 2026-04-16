@@ -1,0 +1,45 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-contact-links",
+    "version": "2.0.0",
+    "title": "DS Contact Links",
+    "category": "ds-forms",
+    "icon": "phone",
+    "description": "Contact information links (phone, email, address).",
+    "keywords": [
+        "contact",
+        "phone",
+        "email",
+        "address",
+        "links"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "phone": {
+            "type": "string",
+            "default": ""
+        },
+        "email": {
+            "type": "string",
+            "default": ""
+        },
+        "address": {
+            "type": "string",
+            "default": ""
+        },
+        "layout": {
+            "type": "string",
+            "default": "vertical"
+        },
+        "showIcons": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-contact-links.js"
+}

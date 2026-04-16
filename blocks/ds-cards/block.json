@@ -1,0 +1,34 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-cards",
+    "version": "2.0.0",
+    "title": "DS Cards",
+    "category": "ds-content",
+    "icon": "grid-view",
+    "description": "Card grid container with responsive columns.",
+    "keywords": [
+        "cards",
+        "grid",
+        "layout"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "columns": {
+            "type": "integer",
+            "default": 3
+        },
+        "gap": {
+            "type": "string",
+            "default": "1.5rem"
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-cards.js",
+    "allowedBlocks": [
+        "developer-starter/ds-card"
+    ]
+}

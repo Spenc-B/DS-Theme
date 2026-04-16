@@ -1,0 +1,58 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-testimonials",
+    "version": "1.0.0",
+    "title": "DS Testimonials",
+    "category": "ds-forms",
+    "icon": "format-quote",
+    "description": "Testimonial card with quote, avatar, author name, role, and star rating.",
+    "keywords": [
+        "testimonial",
+        "quote",
+        "review",
+        "lumina"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    },
+    "attributes": {
+        "quote": {
+            "type": "string",
+            "source": "html",
+            "selector": ".ds-testimonial__quote"
+        },
+        "authorName": {
+            "type": "string",
+            "source": "html",
+            "selector": ".ds-testimonial__name"
+        },
+        "authorRole": {
+            "type": "string",
+            "source": "html",
+            "selector": ".ds-testimonial__role"
+        },
+        "imageId": {
+            "type": "number"
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "rating": {
+            "type": "number",
+            "default": 5
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-testimonials.js"
+}

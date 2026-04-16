@@ -1,0 +1,51 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-countdown-timer",
+    "version": "2.0.0",
+    "title": "DS Countdown Timer",
+    "category": "ds-content",
+    "icon": "clock",
+    "description": "Countdown to a target date/time.",
+    "keywords": [
+        "countdown",
+        "timer",
+        "date"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": {
+            "background": true,
+            "text": true
+        }
+    },
+    "attributes": {
+        "targetDate": {
+            "type": "string",
+            "default": ""
+        },
+        "showDays": {
+            "type": "boolean",
+            "default": true
+        },
+        "showHours": {
+            "type": "boolean",
+            "default": true
+        },
+        "showMinutes": {
+            "type": "boolean",
+            "default": true
+        },
+        "showSeconds": {
+            "type": "boolean",
+            "default": true
+        },
+        "expiredMessage": {
+            "type": "string",
+            "default": "Event has started!"
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-countdown-timer.js"
+}

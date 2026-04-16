@@ -1,0 +1,48 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-chart",
+    "version": "2.0.0",
+    "title": "DS Chart",
+    "category": "ds-data",
+    "icon": "chart-bar",
+    "description": "Interactive chart (bar, line, pie, doughnut).",
+    "keywords": [
+        "chart",
+        "graph",
+        "data",
+        "statistics"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "chartType": {
+            "type": "string",
+            "default": "bar"
+        },
+        "labels": {
+            "type": "array",
+            "default": [
+                "Item 1",
+                "Item 2",
+                "Item 3"
+            ]
+        },
+        "datasets": {
+            "type": "array",
+            "default": []
+        },
+        "height": {
+            "type": "integer",
+            "default": 300
+        },
+        "showLegend": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-chart.js"
+}

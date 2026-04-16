@@ -1,0 +1,48 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-file",
+    "version": "2.0.0",
+    "title": "DS File",
+    "category": "ds-content",
+    "icon": "media-default",
+    "description": "File download card with icon, name, and download button.",
+    "keywords": [
+        "file",
+        "download",
+        "attachment",
+        "document"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "fileId": {
+            "type": "integer",
+            "default": 0
+        },
+        "fileUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "fileName": {
+            "type": "string",
+            "default": ""
+        },
+        "fileSize": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Download"
+        },
+        "showIcon": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-file.js"
+}

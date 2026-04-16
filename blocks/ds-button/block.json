@@ -1,0 +1,51 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-button",
+    "version": "2.0.0",
+    "title": "DS Button",
+    "category": "ds-content",
+    "icon": "button",
+    "description": "Styled button with link, size, and variant options.",
+    "keywords": [
+        "button",
+        "cta",
+        "link"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": {
+            "background": true,
+            "text": true
+        }
+    },
+    "attributes": {
+        "text": {
+            "type": "string",
+            "default": "Click Me"
+        },
+        "url": {
+            "type": "string",
+            "default": ""
+        },
+        "variant": {
+            "type": "string",
+            "default": "primary"
+        },
+        "size": {
+            "type": "string",
+            "default": "md"
+        },
+        "openInNewTab": {
+            "type": "boolean",
+            "default": false
+        },
+        "fullWidth": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-button.js"
+}

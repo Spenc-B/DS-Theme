@@ -1,0 +1,40 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-menu-option",
+    "version": "2.0.0",
+    "title": "DS Menu Option",
+    "category": "ds-data",
+    "icon": "menu-alt",
+    "description": "Render a specific WordPress menu by location or ID.",
+    "keywords": [
+        "menu",
+        "navigation",
+        "links"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "menuLocation": {
+            "type": "string",
+            "default": ""
+        },
+        "menuId": {
+            "type": "integer",
+            "default": 0
+        },
+        "depth": {
+            "type": "integer",
+            "default": 0
+        },
+        "cssClass": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-menu-option.js",
+    "render": "file:./render.php"
+}

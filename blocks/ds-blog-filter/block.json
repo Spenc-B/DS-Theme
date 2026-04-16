@@ -1,0 +1,45 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-blog-filter",
+    "version": "2.0.0",
+    "title": "DS Blog Filter",
+    "category": "ds-forms",
+    "icon": "filter",
+    "description": "AJAX blog post filter by category/tag.",
+    "keywords": [
+        "blog",
+        "filter",
+        "posts",
+        "categories"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "taxonomy": {
+            "type": "string",
+            "default": "category"
+        },
+        "postsPerPage": {
+            "type": "integer",
+            "default": 9
+        },
+        "layout": {
+            "type": "string",
+            "default": "grid"
+        },
+        "columns": {
+            "type": "integer",
+            "default": 3
+        },
+        "showAll": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-blog-filter.js",
+    "render": "file:./render.php"
+}

@@ -1,0 +1,32 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-name-days",
+    "version": "2.0.0",
+    "title": "DS Name Days",
+    "category": "ds-data",
+    "icon": "admin-users",
+    "description": "Display today's name days (V\u0101rda dienas).",
+    "keywords": [
+        "name days",
+        "varda dienas",
+        "calendar"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "country": {
+            "type": "string",
+            "default": "lv"
+        },
+        "showDate": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-name-days.js",
+    "render": "file:./render.php"
+}

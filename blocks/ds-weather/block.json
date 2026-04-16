@@ -1,0 +1,40 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-weather",
+    "version": "2.0.0",
+    "title": "DS Weather",
+    "category": "ds-data",
+    "icon": "cloud",
+    "description": "Weather widget with location-based forecast.",
+    "keywords": [
+        "weather",
+        "forecast",
+        "temperature"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "location": {
+            "type": "string",
+            "default": ""
+        },
+        "units": {
+            "type": "string",
+            "default": "metric"
+        },
+        "showForecast": {
+            "type": "boolean",
+            "default": true
+        },
+        "forecastDays": {
+            "type": "integer",
+            "default": 5
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-weather.js",
+    "render": "file:./render.php"
+}

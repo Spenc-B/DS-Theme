@@ -1,0 +1,45 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-dynamic-form",
+    "version": "2.0.0",
+    "title": "DS Dynamic Form",
+    "category": "ds-forms",
+    "icon": "feedback",
+    "description": "Contact/dynamic form with configurable fields.",
+    "keywords": [
+        "form",
+        "contact",
+        "email",
+        "fields"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "formId": {
+            "type": "string",
+            "default": ""
+        },
+        "fields": {
+            "type": "array",
+            "default": []
+        },
+        "submitText": {
+            "type": "string",
+            "default": "Submit"
+        },
+        "successMessage": {
+            "type": "string",
+            "default": "Thank you!"
+        },
+        "recipient": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-dynamic-form.js",
+    "render": "file:./render.php"
+}

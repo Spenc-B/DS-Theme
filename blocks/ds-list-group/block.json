@@ -1,0 +1,31 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-list-group",
+    "version": "2.0.0",
+    "title": "DS List Group",
+    "category": "ds-content",
+    "icon": "editor-ul",
+    "description": "Bootstrap-style list group with optional flush and horizontal variants.",
+    "keywords": [
+        "list",
+        "group",
+        "items"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "flush": {
+            "type": "boolean",
+            "default": false
+        },
+        "horizontal": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-list-group.js"
+}

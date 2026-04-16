@@ -3,24 +3,52 @@
     "name": "developer-starter/ds-card",
     "version": "1.0.0",
     "title": "DS Card",
-    "category": "developer-starter",
+    "category": "ds-content",
     "icon": "format-aside",
     "description": "Generic content card with optional image, title, text, and button.",
-    "keywords": ["card", "box", "content", "cta", "lumina"],
+    "keywords": [
+        "card",
+        "box",
+        "content",
+        "cta",
+        "lumina"
+    ],
     "textdomain": "developer-starter",
     "supports": {
         "anchor": true,
         "html": false,
         "className": true,
-        "color": { "background": true, "text": true },
-        "spacing": { "padding": true, "margin": true }
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
     },
     "attributes": {
-        "title": { "type": "string", "source": "html", "selector": ".ds-card__title" },
-        "imageId": { "type": "number" },
-        "imageUrl": { "type": "string", "default": "" },
-        "buttonText": { "type": "string", "source": "html", "selector": ".ds-card__btn span" },
-        "buttonUrl": { "type": "string", "default": "" }
+        "title": {
+            "type": "string",
+            "source": "html",
+            "selector": ".ds-card__title"
+        },
+        "imageId": {
+            "type": "number"
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonText": {
+            "type": "string",
+            "source": "html",
+            "selector": ".ds-card__btn span"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": ""
+        }
     },
     "editorScript": "file:../../assets/js/blocks/ds-card.js"
 }

@@ -1,0 +1,44 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-ajax-search",
+    "version": "2.0.0",
+    "title": "DS Ajax Search",
+    "category": "ds-forms",
+    "icon": "search",
+    "description": "Live AJAX search with instant results.",
+    "keywords": [
+        "search",
+        "ajax",
+        "live",
+        "instant"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "placeholder": {
+            "type": "string",
+            "default": "Search..."
+        },
+        "postTypes": {
+            "type": "array",
+            "default": [
+                "post",
+                "page"
+            ]
+        },
+        "maxResults": {
+            "type": "integer",
+            "default": 5
+        },
+        "showThumbnail": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-ajax-search.js",
+    "render": "file:./render.php"
+}

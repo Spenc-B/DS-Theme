@@ -1,0 +1,44 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-gallery",
+    "version": "2.0.0",
+    "title": "DS Gallery",
+    "category": "ds-content",
+    "icon": "format-gallery",
+    "description": "Image gallery with masonry/grid layout and lightbox.",
+    "keywords": [
+        "gallery",
+        "images",
+        "masonry",
+        "lightbox"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "images": {
+            "type": "array",
+            "default": []
+        },
+        "columns": {
+            "type": "integer",
+            "default": 3
+        },
+        "layout": {
+            "type": "string",
+            "default": "grid"
+        },
+        "lightbox": {
+            "type": "boolean",
+            "default": true
+        },
+        "gap": {
+            "type": "string",
+            "default": "0.5rem"
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-gallery.js"
+}

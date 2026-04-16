@@ -1,0 +1,47 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-cta-card",
+    "version": "2.0.0",
+    "title": "DS CTA Card",
+    "category": "ds-content",
+    "icon": "megaphone",
+    "description": "Call-to-action card with heading, text, and button.",
+    "keywords": [
+        "cta",
+        "call-to-action",
+        "card"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": {
+            "background": true,
+            "text": true
+        }
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": "Ready to start?"
+        },
+        "text": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Get Started"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "variant": {
+            "type": "string",
+            "default": "coral"
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-cta-card.js"
+}

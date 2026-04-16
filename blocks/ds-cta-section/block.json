@@ -1,0 +1,51 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-cta-section",
+    "version": "2.0.0",
+    "title": "DS CTA Section",
+    "category": "ds-content",
+    "icon": "megaphone",
+    "description": "Full-width call-to-action banner section.",
+    "keywords": [
+        "cta",
+        "banner",
+        "section"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": ""
+        },
+        "subtitle": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Learn More"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "alignment": {
+            "type": "string",
+            "default": "center"
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-cta-section.js"
+}

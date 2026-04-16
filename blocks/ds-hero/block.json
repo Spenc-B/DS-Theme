@@ -1,0 +1,59 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-hero",
+    "version": "2.0.0",
+    "title": "DS Hero",
+    "category": "ds-layout",
+    "icon": "cover-image",
+    "description": "Full-width hero section with heading, subtitle, and CTA.",
+    "keywords": [
+        "hero",
+        "banner",
+        "header"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        },
+        "className": true
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": ""
+        },
+        "subtitle": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageId": {
+            "type": "integer",
+            "default": 0
+        },
+        "overlayOpacity": {
+            "type": "integer",
+            "default": 50
+        },
+        "minHeight": {
+            "type": "string",
+            "default": "60vh"
+        },
+        "alignment": {
+            "type": "string",
+            "default": "center"
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-hero.js"
+}

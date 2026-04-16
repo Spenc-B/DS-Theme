@@ -1,0 +1,40 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-code-display",
+    "version": "2.0.0",
+    "title": "DS Code Display",
+    "category": "ds-content",
+    "icon": "editor-code",
+    "description": "Syntax-highlighted code block with copy button.",
+    "keywords": [
+        "code",
+        "syntax",
+        "pre",
+        "highlight"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "code": {
+            "type": "string",
+            "default": ""
+        },
+        "language": {
+            "type": "string",
+            "default": "javascript"
+        },
+        "showLineNumbers": {
+            "type": "boolean",
+            "default": true
+        },
+        "showCopyButton": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-code-display.js"
+}

@@ -1,0 +1,47 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-table",
+    "version": "2.0.0",
+    "title": "DS Table",
+    "category": "ds-content",
+    "icon": "editor-table",
+    "description": "Responsive Bootstrap-styled table.",
+    "keywords": [
+        "table",
+        "data",
+        "grid"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "striped": {
+            "type": "boolean",
+            "default": true
+        },
+        "bordered": {
+            "type": "boolean",
+            "default": false
+        },
+        "hover": {
+            "type": "boolean",
+            "default": true
+        },
+        "responsive": {
+            "type": "boolean",
+            "default": true
+        },
+        "rows": {
+            "type": "integer",
+            "default": 3
+        },
+        "cols": {
+            "type": "integer",
+            "default": 3
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-table.js"
+}

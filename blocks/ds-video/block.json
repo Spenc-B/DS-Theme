@@ -1,0 +1,48 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-video",
+    "version": "2.0.0",
+    "title": "DS Video",
+    "category": "ds-content",
+    "icon": "video-alt3",
+    "description": "Responsive video embed with optional lightbox.",
+    "keywords": [
+        "video",
+        "embed",
+        "youtube",
+        "vimeo"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "url": {
+            "type": "string",
+            "default": ""
+        },
+        "aspectRatio": {
+            "type": "string",
+            "default": "16by9"
+        },
+        "autoplay": {
+            "type": "boolean",
+            "default": false
+        },
+        "lightbox": {
+            "type": "boolean",
+            "default": false
+        },
+        "posterUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "posterId": {
+            "type": "integer",
+            "default": 0
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-video.js"
+}

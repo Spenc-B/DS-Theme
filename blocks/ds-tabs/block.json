@@ -3,27 +3,44 @@
     "name": "developer-starter/ds-tabs",
     "version": "1.0.0",
     "title": "DS Tabs",
-    "category": "developer-starter",
+    "category": "ds-layout",
     "icon": "table-row-before",
-    "description": "Tabbed content container — each tab has its own inner content.",
-    "keywords": ["tabs", "tabbed", "toggle", "sections", "lumina"],
+    "description": "Tabbed content container \u2014 each tab has its own inner content.",
+    "keywords": [
+        "tabs",
+        "tabbed",
+        "toggle",
+        "sections",
+        "lumina"
+    ],
     "textdomain": "developer-starter",
     "supports": {
         "anchor": true,
         "html": false,
         "className": true,
-        "spacing": { "margin": true }
+        "spacing": {
+            "margin": true
+        }
     },
     "attributes": {
         "tabs": {
             "type": "array",
             "default": [
-                { "label": "Tab 1" },
-                { "label": "Tab 2" },
-                { "label": "Tab 3" }
+                {
+                    "label": "Tab 1"
+                },
+                {
+                    "label": "Tab 2"
+                },
+                {
+                    "label": "Tab 3"
+                }
             ]
         },
-        "activeTab": { "type": "number", "default": 0 }
+        "activeTab": {
+            "type": "number",
+            "default": 0
+        }
     },
     "editorScript": "file:../../assets/js/blocks/ds-tabs.js"
 }

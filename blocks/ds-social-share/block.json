@@ -1,0 +1,42 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-social-share",
+    "version": "2.0.0",
+    "title": "DS Social Share",
+    "category": "ds-social",
+    "icon": "share-alt2",
+    "description": "Share current page on social media.",
+    "keywords": [
+        "share",
+        "social",
+        "facebook",
+        "twitter"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "platforms": {
+            "type": "array",
+            "default": [
+                "facebook",
+                "twitter",
+                "linkedin",
+                "email"
+            ]
+        },
+        "style": {
+            "type": "string",
+            "default": "icons"
+        },
+        "label": {
+            "type": "string",
+            "default": "Share this:"
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-social-share.js",
+    "render": "file:./render.php"
+}

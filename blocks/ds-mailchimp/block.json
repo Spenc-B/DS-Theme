@@ -1,0 +1,44 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-mailchimp",
+    "version": "2.0.0",
+    "title": "DS Mailchimp",
+    "category": "ds-forms",
+    "icon": "email",
+    "description": "Mailchimp newsletter signup form.",
+    "keywords": [
+        "mailchimp",
+        "newsletter",
+        "email",
+        "subscribe"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": {
+            "background": true,
+            "text": true
+        }
+    },
+    "attributes": {
+        "formAction": {
+            "type": "string",
+            "default": ""
+        },
+        "placeholder": {
+            "type": "string",
+            "default": "Enter your email"
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Subscribe"
+        },
+        "layout": {
+            "type": "string",
+            "default": "inline"
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-mailchimp.js"
+}

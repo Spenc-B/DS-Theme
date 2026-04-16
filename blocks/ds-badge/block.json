@@ -1,0 +1,34 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-badge",
+    "version": "2.0.0",
+    "title": "DS Badge",
+    "category": "ds-content",
+    "icon": "tag",
+    "description": "Inline badge/label with colour variants.",
+    "keywords": [
+        "badge",
+        "label",
+        "tag"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "text": {
+            "type": "string",
+            "default": "New"
+        },
+        "variant": {
+            "type": "string",
+            "default": "primary"
+        },
+        "pill": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-badge.js"
+}

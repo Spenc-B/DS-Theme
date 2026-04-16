@@ -1,0 +1,49 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-google-map",
+    "version": "2.0.0",
+    "title": "DS Google Map",
+    "category": "ds-data",
+    "icon": "location-alt",
+    "description": "Google Maps embed with marker and custom styling.",
+    "keywords": [
+        "map",
+        "google",
+        "location",
+        "address"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "address": {
+            "type": "string",
+            "default": ""
+        },
+        "lat": {
+            "type": "string",
+            "default": ""
+        },
+        "lng": {
+            "type": "string",
+            "default": ""
+        },
+        "zoom": {
+            "type": "integer",
+            "default": 14
+        },
+        "height": {
+            "type": "string",
+            "default": "400px"
+        },
+        "mapStyle": {
+            "type": "string",
+            "default": "default"
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-google-map.js",
+    "render": "file:./render.php"
+}

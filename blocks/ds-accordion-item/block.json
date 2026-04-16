@@ -1,0 +1,37 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-accordion-item",
+    "version": "1.0.0",
+    "title": "DS Accordion Item",
+    "category": "ds-layout",
+    "icon": "arrow-down-alt2",
+    "description": "Expandable accordion / FAQ item with title and inner content.",
+    "keywords": [
+        "accordion",
+        "faq",
+        "toggle",
+        "collapse",
+        "lumina"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "spacing": {
+            "margin": true
+        }
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "source": "html",
+            "selector": ".ds-accordion__title"
+        },
+        "defaultOpen": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-accordion-item.js"
+}

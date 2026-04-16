@@ -1,0 +1,45 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-catalogue",
+    "version": "2.0.0",
+    "title": "DS Catalogue",
+    "category": "ds-forms",
+    "icon": "portfolio",
+    "description": "Filterable catalogue/portfolio grid.",
+    "keywords": [
+        "catalogue",
+        "portfolio",
+        "filter",
+        "gallery"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "postType": {
+            "type": "string",
+            "default": "post"
+        },
+        "taxonomy": {
+            "type": "string",
+            "default": "category"
+        },
+        "columns": {
+            "type": "integer",
+            "default": 3
+        },
+        "postsPerPage": {
+            "type": "integer",
+            "default": 12
+        },
+        "showFilter": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-catalogue.js",
+    "render": "file:./render.php"
+}

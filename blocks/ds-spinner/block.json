@@ -1,0 +1,38 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-spinner",
+    "version": "2.0.0",
+    "title": "DS Spinner",
+    "category": "ds-content",
+    "icon": "update",
+    "description": "Loading spinner/indicator.",
+    "keywords": [
+        "spinner",
+        "loading",
+        "indicator"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "variant": {
+            "type": "string",
+            "default": "border"
+        },
+        "color": {
+            "type": "string",
+            "default": "primary"
+        },
+        "size": {
+            "type": "string",
+            "default": "md"
+        },
+        "label": {
+            "type": "string",
+            "default": "Loading..."
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-spinner.js"
+}

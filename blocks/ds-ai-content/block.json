@@ -1,0 +1,40 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-ai-content",
+    "version": "2.0.0",
+    "title": "DS AI Content",
+    "category": "ds-data",
+    "icon": "lightbulb",
+    "description": "AI-generated content placeholder with prompt field.",
+    "keywords": [
+        "ai",
+        "content",
+        "generate",
+        "gpt"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "prompt": {
+            "type": "string",
+            "default": ""
+        },
+        "generatedContent": {
+            "type": "string",
+            "default": ""
+        },
+        "model": {
+            "type": "string",
+            "default": "gpt-4"
+        },
+        "maxTokens": {
+            "type": "integer",
+            "default": 500
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-ai-content.js"
+}

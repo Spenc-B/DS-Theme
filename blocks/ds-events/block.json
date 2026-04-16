@@ -1,0 +1,37 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-events",
+    "version": "2.0.0",
+    "title": "DS Events",
+    "category": "ds-forms",
+    "icon": "calendar-alt",
+    "description": "Event listing with date, time, and location.",
+    "keywords": [
+        "events",
+        "calendar",
+        "schedule",
+        "listing"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "layout": {
+            "type": "string",
+            "default": "list"
+        },
+        "showPastEvents": {
+            "type": "boolean",
+            "default": false
+        },
+        "postsPerPage": {
+            "type": "integer",
+            "default": 10
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-events.js",
+    "render": "file:./render.php"
+}

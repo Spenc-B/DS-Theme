@@ -1,0 +1,32 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-feature-list",
+    "version": "2.0.0",
+    "title": "DS Feature List",
+    "category": "ds-content",
+    "icon": "yes-alt",
+    "description": "Icon feature list with customizable icons and text.",
+    "keywords": [
+        "feature",
+        "list",
+        "icons",
+        "checklist"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true
+    },
+    "attributes": {
+        "icon": {
+            "type": "string",
+            "default": "\u2713"
+        },
+        "columns": {
+            "type": "integer",
+            "default": 1
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-feature-list.js"
+}

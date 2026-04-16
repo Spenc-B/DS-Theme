@@ -1,0 +1,44 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-inline-svg",
+    "version": "2.0.0",
+    "title": "DS Inline SVG",
+    "category": "ds-content",
+    "icon": "format-image",
+    "description": "Render inline SVG from media library or URL.",
+    "keywords": [
+        "svg",
+        "icon",
+        "vector",
+        "inline"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": {
+            "text": true
+        }
+    },
+    "attributes": {
+        "svgContent": {
+            "type": "string",
+            "default": ""
+        },
+        "svgUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "width": {
+            "type": "string",
+            "default": "48px"
+        },
+        "height": {
+            "type": "string",
+            "default": "48px"
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-inline-svg.js",
+    "render": "file:./render.php"
+}
