@@ -1,0 +1,52 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-logo-grid",
+    "version": "1.3.0",
+    "title": "DS Logo Grid",
+    "category": "ds-content",
+    "icon": "grid-view",
+    "description": "Client / partner logo grid with columns control and greyscale toggle.",
+    "keywords": [
+        "logos",
+        "clients",
+        "partners",
+        "grid",
+        "brands"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": {
+            "background": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    },
+    "attributes": {
+        "columns": {
+            "type": "integer",
+            "default": 4
+        },
+        "grayscale": {
+            "type": "boolean",
+            "default": true
+        },
+        "logos": {
+            "type": "array",
+            "default": [],
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id":  { "type": "number" },
+                    "url": { "type": "string" },
+                    "alt": { "type": "string" }
+                }
+            }
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-logo-grid.js"
+}

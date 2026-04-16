@@ -7,12 +7,18 @@
  * @var WP_Block $block      Block instance.
  */
 
-$wrapper_attributes = get_block_wrapper_attributes([
+$allowed_tags = [ 'section', 'div', 'article', 'aside', 'main' ];
+$tag_name     = isset( $attributes['tagName'] ) && in_array( $attributes['tagName'], $allowed_tags, true )
+    ? $attributes['tagName']
+    : 'section';
+
+$wrapper_attributes = get_block_wrapper_attributes( [
     'class' => 'ds-section',
-]);
+] );
 
 printf(
-    '<div %s>%s</div>',
+    '<%1$s %2$s>%3$s</%1$s>',
+    $tag_name,
     $wrapper_attributes,
     $content
 );

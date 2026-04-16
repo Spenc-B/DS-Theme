@@ -1,0 +1,59 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-team-member",
+    "version": "1.3.0",
+    "title": "DS Team Member",
+    "category": "ds-content",
+    "icon": "admin-users",
+    "description": "Team member card with circular photo, name, role, and bio.",
+    "keywords": [
+        "team",
+        "member",
+        "staff",
+        "person",
+        "profile"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    },
+    "attributes": {
+        "name": {
+            "type": "string",
+            "source": "html",
+            "selector": ".ds-team-member__name"
+        },
+        "role": {
+            "type": "string",
+            "source": "html",
+            "selector": ".ds-team-member__role"
+        },
+        "bio": {
+            "type": "string",
+            "source": "html",
+            "selector": ".ds-team-member__bio"
+        },
+        "imageId": {
+            "type": "number"
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "alignment": {
+            "type": "string",
+            "default": "center"
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-team-member.js"
+}

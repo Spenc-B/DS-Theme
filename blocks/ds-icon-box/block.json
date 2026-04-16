@@ -1,0 +1,55 @@
+{
+    "apiVersion": 3,
+    "name": "developer-starter/ds-icon-box",
+    "version": "1.3.0",
+    "title": "DS Icon Box",
+    "category": "ds-content",
+    "icon": "star-filled",
+    "description": "Icon + heading + description card with centre or left alignment.",
+    "keywords": [
+        "icon",
+        "box",
+        "feature",
+        "card",
+        "service"
+    ],
+    "textdomain": "developer-starter",
+    "supports": {
+        "anchor": true,
+        "html": false,
+        "className": true,
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    },
+    "attributes": {
+        "icon": {
+            "type": "string",
+            "default": "⭐"
+        },
+        "heading": {
+            "type": "string",
+            "source": "html",
+            "selector": ".ds-icon-box__heading"
+        },
+        "description": {
+            "type": "string",
+            "source": "html",
+            "selector": ".ds-icon-box__description"
+        },
+        "alignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "iconSize": {
+            "type": "string",
+            "default": "2rem"
+        }
+    },
+    "editorScript": "file:../../assets/js/blocks/ds-icon-box.js"
+}
