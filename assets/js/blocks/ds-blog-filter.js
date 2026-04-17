@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Blog Filter Settings', initialOpen: true },
+                        { title: 'Blog Filter Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Taxonomy',
                             value: attrs.taxonomy,

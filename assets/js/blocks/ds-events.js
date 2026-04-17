@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Events Settings', initialOpen: true },
+                        { title: 'Events Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Layout',
                             value: attrs.layout,

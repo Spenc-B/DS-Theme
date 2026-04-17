@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Sitemap Settings', initialOpen: true },
+                        { title: 'Sitemap Settings', initialOpen: true },
                         el(ToggleControl, {
                             label: 'Showhierarchy',
                             checked: attrs.showHierarchy,

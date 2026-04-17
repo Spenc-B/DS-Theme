@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Inline SVG Settings', initialOpen: true },
+                        { title: 'SVG Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Svgcontent',
                             value: attrs.svgContent,

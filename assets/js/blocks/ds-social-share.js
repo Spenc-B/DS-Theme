@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Social Share Settings', initialOpen: true },
+                        { title: 'Social Share Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Style',
                             value: attrs.style,

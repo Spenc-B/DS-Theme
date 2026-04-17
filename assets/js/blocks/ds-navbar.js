@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Navbar Settings', initialOpen: true },
+                        { title: 'Navbar Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Menulocation',
                             value: attrs.menuLocation,

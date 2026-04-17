@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Custom Embed Settings', initialOpen: true },
+                        { title: 'Embed Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Embedcode',
                             value: attrs.embedCode,

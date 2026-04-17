@@ -249,3 +249,137 @@
     flex: 0 0 auto;
     min-width: 200px;
 }
+
+/* ══════════════════════════════════════════════════════════
+   Inspector Sidebar — DS Theme Polish
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Panel header accent ──────────────────────── */
+.block-editor-block-inspector .components-panel__body > .components-panel__body-title > .components-button {
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.01em;
+}
+
+/* Subtle left accent on open panel headers */
+.block-editor-block-inspector .components-panel__body.is-opened > .components-panel__body-title {
+    border-left: 3px solid #E17055;
+}
+
+/* ── Better control spacing inside panels ─────── */
+.block-editor-block-inspector .components-panel__body > div:not(.components-panel__body-title) {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+/* Tighter vertical rhythm inside panels */
+.block-editor-block-inspector .components-panel__body .components-base-control {
+    margin-bottom: 12px;
+}
+
+/* ── Section divider within panels ────────────── */
+.ds-sidebar-divider {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 16px 0 12px;
+}
+
+/* ── Section heading within panels ────────────── */
+.ds-sidebar-heading {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #757575;
+    margin: 0 0 8px;
+    padding: 0;
+}
+
+/* ── Compact inline toggles ───────────────────── */
+.ds-toggle-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.ds-toggle-row .components-base-control {
+    flex: 1 1 50%;
+    min-width: 0;
+    margin-bottom: 8px;
+}
+
+.ds-toggle-row .components-base-control .components-toggle-control .components-base-control__field {
+    margin-bottom: 0;
+}
+
+/* ── Compact color picker override ────────────── */
+.ds-compact-color .components-color-picker {
+    width: 100%;
+}
+
+.ds-compact-color .components-color-picker__saturation-pointer,
+.ds-compact-color .components-color-picker__hue-pointer {
+    box-shadow: 0 0 0 2px #fff, 0 0 4px rgba(0,0,0,.3);
+}
+
+/* ── Info box for sidebar hints ───────────────── */
+.ds-sidebar-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    background: #f0f6fc;
+    border: 1px solid #d0e3f4;
+    border-radius: 4px;
+    padding: 8px 10px;
+    margin-bottom: 12px;
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: #3d5a80;
+}
+
+.ds-sidebar-info::before {
+    content: '\2139';
+    font-weight: bold;
+    flex-shrink: 0;
+    font-size: 13px;
+}
+
+/* ── Global extensions panel grid polish ──────── */
+.ds-extensions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 12px;
+}
+
+.ds-extensions-grid .components-base-control {
+    margin-bottom: 6px;
+}
+
+.ds-extensions-grid .components-base-control .components-select-control__input {
+    min-height: 30px;
+    font-size: 12px;
+    padding: 2px 6px;
+}
+
+.ds-extensions-grid .components-base-control .components-base-control__label {
+    font-size: 11px;
+    margin-bottom: 2px;
+}
+
+/* ── Breakpoint section header in extensions ──── */
+.ds-bp-header {
+    grid-column: 1 / -1;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #E17055;
+    padding: 6px 0 2px;
+    border-bottom: 1px solid #f0eeec;
+    margin-bottom: 2px;
+}
+
+.ds-bp-header:first-child {
+    padding-top: 0;
+}

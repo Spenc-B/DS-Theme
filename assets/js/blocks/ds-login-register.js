@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Login / Register Settings', initialOpen: true },
+                        { title: 'Login / Register Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Defaulttab',
                             value: attrs.defaultTab,

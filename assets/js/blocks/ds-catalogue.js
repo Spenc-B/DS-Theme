@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Catalogue Settings', initialOpen: true },
+                        { title: 'Catalogue Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Posttype',
                             value: attrs.postType,

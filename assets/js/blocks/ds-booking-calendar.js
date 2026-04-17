@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Booking Calendar Settings', initialOpen: true },
+                        { title: 'Booking Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Calendarid',
                             value: attrs.calendarId,

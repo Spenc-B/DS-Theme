@@ -57,9 +57,10 @@
                 el(
                     InspectorControls,
                     null,
+                    /* ── Content ──────────────────── */
                     el(
                         PanelBody,
-                        { title: 'Progress Settings', initialOpen: true },
+                        { title: 'Content', initialOpen: true },
                         el(TextControl, {
                             label: 'Label',
                             value: a.label || '',
@@ -76,34 +77,44 @@
                             label: 'Show percentage text',
                             checked: a.showPercentage !== false,
                             onChange: function (v) { props.setAttributes({ showPercentage: v }); },
-                        }),
+                        })
+                    ),
+                    /* ── Appearance ───────────────── */
+                    el(
+                        PanelBody,
+                        { title: 'Appearance', initialOpen: false },
                         el(SelectControl, {
                             label: 'Colour variant',
                             value: a.variant || '',
                             options: VARIANT_OPTIONS,
                             onChange: function (v) { props.setAttributes({ variant: v }); },
                         }),
-                        el(ToggleControl, {
-                            label: 'Striped',
-                            checked: !!a.striped,
-                            onChange: function (v) { props.setAttributes({ striped: v }); },
-                        }),
-                        el(ToggleControl, {
-                            label: 'Animated stripes',
-                            checked: !!a.animated,
-                            onChange: function (v) { props.setAttributes({ animated: v }); },
-                        }),
                         el(TextControl, {
                             label: 'Height',
                             value: a.height || '',
                             help: 'e.g. 25px, 2rem',
                             onChange: function (v) { props.setAttributes({ height: v }); },
-                        })
+                        }),
+                        el('hr', { className: 'ds-sidebar-divider' }),
+                        el('span', { className: 'ds-sidebar-heading' }, 'Effects'),
+                        el('div', { className: 'ds-toggle-row' },
+                            el(ToggleControl, {
+                                label: 'Striped',
+                                checked: !!a.striped,
+                                onChange: function (v) { props.setAttributes({ striped: v }); },
+                            }),
+                            el(ToggleControl, {
+                                label: 'Animated',
+                                checked: !!a.animated,
+                                onChange: function (v) { props.setAttributes({ animated: v }); },
+                            })
+                        )
                     ),
+                    /* ── Custom Colour ────────────── */
                     el(
                         PanelBody,
                         { title: 'Custom Bar Colour', initialOpen: false },
-                        el('p', { style: { fontSize: '12px', color: '#757575' } }, 'Overrides variant when no variant is selected.'),
+                        el('div', { className: 'ds-sidebar-info' }, 'Overrides the variant when no variant is selected.'),
                         el(ColorPalette, {
                             colors: COLORS,
                             value: a.barColor || undefined,

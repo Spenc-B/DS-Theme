@@ -24,9 +24,10 @@
                 el(
                     InspectorControls,
                     null,
+                    /* ── Slide Layout ─────────────── */
                     el(
                         PanelBody,
-                        { title: 'Swiper Settings', initialOpen: true },
+                        { title: 'Slide Layout', initialOpen: true },
                         el(RangeControl, {
                             label: 'Slides per view',
                             value: attrs.slidesPerView,
@@ -40,27 +41,38 @@
                             onChange: function (v) { props.setAttributes({ spaceBetween: v }); },
                             min: 0,
                             max: 100,
-                        }),
-                        el(ToggleControl, {
-                            label: 'Loop',
-                            checked: attrs.loop,
-                            onChange: function (v) { props.setAttributes({ loop: v }); },
-                        }),
-                        el(ToggleControl, {
-                            label: 'Autoplay',
-                            checked: attrs.autoplay,
-                            onChange: function (v) { props.setAttributes({ autoplay: v }); },
-                        }),
-                        el(ToggleControl, {
-                            label: 'Navigation arrows',
-                            checked: attrs.navigation,
-                            onChange: function (v) { props.setAttributes({ navigation: v }); },
-                        }),
-                        el(ToggleControl, {
-                            label: 'Pagination dots',
-                            checked: attrs.pagination,
-                            onChange: function (v) { props.setAttributes({ pagination: v }); },
                         })
+                    ),
+                    /* ── Behaviour ────────────────── */
+                    el(
+                        PanelBody,
+                        { title: 'Behaviour', initialOpen: false },
+                        el('div', { className: 'ds-toggle-row' },
+                            el(ToggleControl, {
+                                label: 'Loop',
+                                checked: attrs.loop,
+                                onChange: function (v) { props.setAttributes({ loop: v }); },
+                            }),
+                            el(ToggleControl, {
+                                label: 'Autoplay',
+                                checked: attrs.autoplay,
+                                onChange: function (v) { props.setAttributes({ autoplay: v }); },
+                            })
+                        ),
+                        el('hr', { className: 'ds-sidebar-divider' }),
+                        el('span', { className: 'ds-sidebar-heading' }, 'Controls'),
+                        el('div', { className: 'ds-toggle-row' },
+                            el(ToggleControl, {
+                                label: 'Nav arrows',
+                                checked: attrs.navigation,
+                                onChange: function (v) { props.setAttributes({ navigation: v }); },
+                            }),
+                            el(ToggleControl, {
+                                label: 'Pagination',
+                                checked: attrs.pagination,
+                                onChange: function (v) { props.setAttributes({ pagination: v }); },
+                            })
+                        )
                     )
                 ),
                 el('div', blockProps,

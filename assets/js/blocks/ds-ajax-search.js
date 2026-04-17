@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Ajax Search Settings', initialOpen: true },
+                        { title: 'Search Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Placeholder',
                             value: attrs.placeholder,

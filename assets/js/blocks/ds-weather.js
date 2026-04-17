@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Weather Settings', initialOpen: true },
+                        { title: 'Weather Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Location',
                             value: attrs.location,

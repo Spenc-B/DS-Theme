@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Dynamic Form Settings', initialOpen: true },
+                        { title: 'Form Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Formid',
                             value: attrs.formId,

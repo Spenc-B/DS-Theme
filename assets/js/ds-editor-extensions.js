@@ -136,21 +136,28 @@
 
             var className = props.attributes.className || '';
 
-            /* Build spacing controls */
+            /* Build spacing controls — grouped by breakpoint with headers */
             function spacingSection(type, label) {
                 var parsed = parseSpacing(className, type);
                 var controls = [];
 
                 BREAKPOINTS.forEach(function (bp) {
+                    /* Breakpoint header */
+                    controls.push(
+                        el('div', {
+                            key: type + '-header-' + bp.value,
+                            className: 'ds-bp-header',
+                        }, bp.value ? bp.label.toUpperCase() : 'DEFAULT')
+                    );
+
                     SIDES.forEach(function (side) {
                         var key = side.prefix + '|' + bp.value;
                         var current = parsed[key] || '';
-                        var controlLabel = (bp.value ? bp.label + ' ' : '') + side.label;
 
                         controls.push(
                             el(SelectControl, {
                                 key: type + '-' + side.prefix + '-' + bp.value,
-                                label: controlLabel,
+                                label: side.label,
                                 value: current,
                                 options: SIZE_OPTIONS,
                                 onChange: function (v) {
@@ -166,17 +173,11 @@
                 return el(
                     PanelBody,
                     { title: label, initialOpen: false },
-                    el('div', {
-                        style: {
-                            display: 'grid',
-                            gridTemplateColumns: '1fr 1fr',
-                            gap: '4px 12px',
-                        },
-                    }, controls)
+                    el('div', { className: 'ds-extensions-grid' }, controls)
                 );
             }
 
-            /* Build column controls */
+            /* Build column controls — compact grid */
             function columnSection() {
                 var parsed = parseColumns(className);
                 var controls = [];
@@ -186,7 +187,7 @@
                     controls.push(
                         el(SelectControl, {
                             key: 'col-' + bp.value,
-                            label: bp.value ? 'Col ' + bp.label : 'Col (default)',
+                            label: bp.value ? bp.label.toUpperCase() : 'Default',
                             value: current,
                             options: COL_OPTIONS,
                             onChange: function (v) {
@@ -201,7 +202,7 @@
                 return el(
                     PanelBody,
                     { title: 'Bootstrap Columns', initialOpen: false },
-                    controls
+                    el('div', { className: 'ds-extensions-grid' }, controls)
                 );
             }
 

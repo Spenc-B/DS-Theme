@@ -22,24 +22,30 @@
                 el(
                     InspectorControls,
                     null,
+                    /* ── Location ─────────────────── */
                     el(
                         PanelBody,
-                        { title: 'DS Google Map Settings', initialOpen: true },
+                        { title: 'Location', initialOpen: true },
                         el(TextControl, {
                             label: 'Address',
                             value: attrs.address,
                             onChange: function (v) { props.setAttributes({ address: v }); },
                         }),
                         el(TextControl, {
-                            label: 'Lat',
+                            label: 'Latitude',
                             value: attrs.lat,
                             onChange: function (v) { props.setAttributes({ lat: v }); },
                         }),
                         el(TextControl, {
-                            label: 'Lng',
+                            label: 'Longitude',
                             value: attrs.lng,
                             onChange: function (v) { props.setAttributes({ lng: v }); },
-                        }),
+                        })
+                    ),
+                    /* ── Display ──────────────────── */
+                    el(
+                        PanelBody,
+                        { title: 'Display', initialOpen: false },
                         el(RangeControl, {
                             label: 'Zoom',
                             value: attrs.zoom,
@@ -53,10 +59,10 @@
                             onChange: function (v) { props.setAttributes({ height: v }); },
                         }),
                         el(TextControl, {
-                            label: 'Mapstyle',
+                            label: 'Map Style',
                             value: attrs.mapStyle,
                             onChange: function (v) { props.setAttributes({ mapStyle: v }); },
-                        }),
+                        })
                     )
                 ),
                 el('div', blockProps, el('p', null, 'DS Google Map'))

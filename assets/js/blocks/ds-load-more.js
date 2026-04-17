@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Load More Settings', initialOpen: true },
+                        { title: 'Load More Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Posttype',
                             value: attrs.postType,

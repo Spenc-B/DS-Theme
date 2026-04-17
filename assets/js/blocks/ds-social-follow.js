@@ -45,9 +45,10 @@
                 el(
                     InspectorControls,
                     null,
+                    /* ── Platforms (repeater) ─────── */
                     el(
                         PanelBody,
-                        { title: 'Social Links', initialOpen: true },
+                        { title: 'Platforms', initialOpen: true },
                         platforms.map(function (p, i) {
                             return el('div', { key: i, style: { marginBottom: '12px', paddingBottom: '12px', borderBottom: '1px solid #e0e0e0' } },
                                 el(SelectControl, {
@@ -73,7 +74,12 @@
                             className: 'components-button is-secondary',
                             onClick: addPlatform,
                             style: { marginTop: '8px' },
-                        }, '+ Add Platform'),
+                        }, '+ Add Platform')
+                    ),
+                    /* ── Appearance ───────────────── */
+                    el(
+                        PanelBody,
+                        { title: 'Appearance', initialOpen: false },
                         el(SelectControl, {
                             label: 'Size',
                             value: a.size || 'md',

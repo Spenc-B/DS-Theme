@@ -82,14 +82,10 @@
                 el(
                     InspectorControls,
                     null,
+                    /* ── Appearance ────────────────── */
                     el(
                         PanelBody,
-                        { title: 'Button Settings', initialOpen: true },
-                        el(TextControl, {
-                            label: 'URL',
-                            value: attrs.url,
-                            onChange: function (v) { props.setAttributes({ url: v }); },
-                        }),
+                        { title: 'Appearance', initialOpen: true },
                         el(SelectControl, {
                             label: 'Variant',
                             value: attrs.variant,
@@ -102,35 +98,55 @@
                             options: SIZE_OPTIONS,
                             onChange: function (v) { props.setAttributes({ size: v }); },
                         }),
-                        el(ToggleControl, {
-                            label: 'Full width',
-                            checked: !!attrs.fullWidth,
-                            onChange: function (v) { props.setAttributes({ fullWidth: v }); },
-                        }),
-                        el(ToggleControl, {
-                            label: 'Open in new tab',
-                            checked: !!attrs.openInNewTab,
-                            onChange: function (v) { props.setAttributes({ openInNewTab: v }); },
-                        }),
-                        el(SelectControl, {
-                            label: 'Alignment',
-                            value: attrs.align || '',
-                            options: ALIGN_OPTIONS,
-                            onChange: function (v) { props.setAttributes({ align: v }); },
-                        }),
                         el(TextControl, {
                             label: 'Border radius',
                             value: attrs.borderRadius || '',
                             help: 'e.g. 12px, 0.5rem, 50%',
                             onChange: function (v) { props.setAttributes({ borderRadius: v }); },
+                        }),
+                        el('div', { className: 'ds-toggle-row' },
+                            el(ToggleControl, {
+                                label: 'Full width',
+                                checked: !!attrs.fullWidth,
+                                onChange: function (v) { props.setAttributes({ fullWidth: v }); },
+                            })
+                        )
+                    ),
+                    /* ── Link ─────────────────────── */
+                    el(
+                        PanelBody,
+                        { title: 'Link', initialOpen: true },
+                        el(TextControl, {
+                            label: 'URL',
+                            value: attrs.url,
+                            onChange: function (v) { props.setAttributes({ url: v }); },
+                        }),
+                        el(ToggleControl, {
+                            label: 'Open in new tab',
+                            checked: !!attrs.openInNewTab,
+                            onChange: function (v) { props.setAttributes({ openInNewTab: v }); },
                         })
                     ),
+                    /* ── Layout ───────────────────── */
+                    el(
+                        PanelBody,
+                        { title: 'Layout', initialOpen: false },
+                        el(SelectControl, {
+                            label: 'Alignment',
+                            value: attrs.align || '',
+                            options: ALIGN_OPTIONS,
+                            onChange: function (v) { props.setAttributes({ align: v }); },
+                        })
+                    ),
+                    /* ── Custom Colours ───────────── */
                     el(
                         PanelBody,
                         { title: 'Custom Colours', initialOpen: false },
+                        el('div', { className: 'ds-sidebar-info' }, 'Overrides the variant colour when set.'),
                         colorField('Background colour', attrs.backgroundColor, function (v) {
                             props.setAttributes({ backgroundColor: v });
                         }, 'btn-bg'),
+                        el('hr', { className: 'ds-sidebar-divider' }),
                         colorField('Text colour', attrs.textColor, function (v) {
                             props.setAttributes({ textColor: v });
                         }, 'btn-text')

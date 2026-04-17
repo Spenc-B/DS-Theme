@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Name Days Settings', initialOpen: true },
+                        { title: 'Name Days Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Country',
                             value: attrs.country,

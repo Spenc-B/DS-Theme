@@ -24,7 +24,7 @@
                     null,
                     el(
                         PanelBody,
-                        { title: 'DS Social Feeds Settings', initialOpen: true },
+                        { title: 'Social Feeds Settings', initialOpen: true },
                         el(TextControl, {
                             label: 'Platform',
                             value: attrs.platform,

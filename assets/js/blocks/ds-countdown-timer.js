@@ -28,9 +28,10 @@
                 el(
                     InspectorControls,
                     null,
+                    /* ── Target ───────────────────── */
                     el(
                         PanelBody,
-                        { title: 'Timer Settings', initialOpen: true },
+                        { title: 'Target', initialOpen: true },
                         el(TextControl, {
                             label: 'Target Date',
                             help: 'Format: YYYY-MM-DDTHH:MM (e.g. 2025-12-31T00:00)',
@@ -41,27 +42,34 @@
                             label: 'Expired Message',
                             value: a.expiredMessage,
                             onChange: function (v) { props.setAttributes({ expiredMessage: v }); },
-                        }),
-                        el(ToggleControl, {
-                            label: 'Show Days',
-                            checked: a.showDays,
-                            onChange: function (v) { props.setAttributes({ showDays: v }); },
-                        }),
-                        el(ToggleControl, {
-                            label: 'Show Hours',
-                            checked: a.showHours,
-                            onChange: function (v) { props.setAttributes({ showHours: v }); },
-                        }),
-                        el(ToggleControl, {
-                            label: 'Show Minutes',
-                            checked: a.showMinutes,
-                            onChange: function (v) { props.setAttributes({ showMinutes: v }); },
-                        }),
-                        el(ToggleControl, {
-                            label: 'Show Seconds',
-                            checked: a.showSeconds,
-                            onChange: function (v) { props.setAttributes({ showSeconds: v }); },
                         })
+                    ),
+                    /* ── Display Segments ─────────── */
+                    el(
+                        PanelBody,
+                        { title: 'Display Segments', initialOpen: true },
+                        el('div', { className: 'ds-toggle-row' },
+                            el(ToggleControl, {
+                                label: 'Days',
+                                checked: a.showDays,
+                                onChange: function (v) { props.setAttributes({ showDays: v }); },
+                            }),
+                            el(ToggleControl, {
+                                label: 'Hours',
+                                checked: a.showHours,
+                                onChange: function (v) { props.setAttributes({ showHours: v }); },
+                            }),
+                            el(ToggleControl, {
+                                label: 'Minutes',
+                                checked: a.showMinutes,
+                                onChange: function (v) { props.setAttributes({ showMinutes: v }); },
+                            }),
+                            el(ToggleControl, {
+                                label: 'Seconds',
+                                checked: a.showSeconds,
+                                onChange: function (v) { props.setAttributes({ showSeconds: v }); },
+                            })
+                        )
                     )
                 ),
                 el(
